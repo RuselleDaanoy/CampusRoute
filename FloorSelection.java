@@ -29,7 +29,7 @@ public class FloorSelection extends JFrame {
         panel.setBackground(Color.decode("#191919"));
 
         JPanel subHeading = new JPanel();
-        subHeading.setBounds(500, 30, 300, 40);
+        subHeading.setBounds(500, 50, 300, 38);
         subHeading.setBackground(Color.decode("#191919"));
         panel.add(subHeading);
 
