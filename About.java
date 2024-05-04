@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class About extends JFrame implements ActionListener {
+    // Return Button has no hover function
     private JButton returnButton;
 
     public About() {
@@ -68,15 +69,14 @@ public class About extends JFrame implements ActionListener {
         panel.setBounds(0, 230, 1280, 490);
         panel.setBackground(new Color(0x191919));
 
+        // Additional description will be added
         String note = "<html><div style='text-align: center;'>"
                     + "is a Design and Analysis of Algorithm project that utilizes mainly the Dijkstra Algorithm to provide<br>"
                     + "a guide to university residents in navigating their paths in the Main Building of New Era<br>"
                     + "University Campus.<br><br>"
                     + "Programmers:<br>"
-                    + "Faye Camille Buri<br>"
-                    + "Venus Ruselle B. Daanoy<br>"
-                    + "Pia Katleya V. Macalanda<br>"
-                    + "Thoby Jim R. Ralleta";
+                    + "Faye Camille Buri, Venus Ruselle B. Daanoy, Pia Katleya V. Macalanda, and Thoby Jim R. Ralleta<br>"
+                    + "2BSCS-1";
         
         JLabel description = new JLabel(note);
         description.setBounds(0, 0, 1280, 300);
