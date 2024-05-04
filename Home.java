@@ -86,46 +86,46 @@ public class Home extends JFrame {
         JPanel panel = new JPanel(null);
         panel.setBounds(900, 0, 380, 720);
         panel.setBackground(Color.WHITE);
-
+    
         JLabel heading1 = new JLabel("FIND YOUR ROUTE,");
         heading1.setBounds(0, 100, 380, 30);
         heading1.setForeground(new Color(0x191919));
         heading1.setFont(new Font("Arial", Font.ITALIC, 28));
         heading1.setHorizontalAlignment(JLabel.CENTER);
         panel.add(heading1);
-
+    
         JLabel heading2 = new JLabel("START A PATH!");
         heading2.setBounds(0, 130, 380, 30);
         heading2.setForeground(new Color(0x191919));
         heading2.setFont(new Font("Arial", Font.ITALIC, 28));
         heading2.setHorizontalAlignment(JLabel.CENTER);
         panel.add(heading2);
-
-        navigateButton = new JButton("NAVIGATE");
+    
+        navigateButton = new RectangularButtonPanel("NAVIGATE");
         navigateButton.setBounds(60, 210, 260, 60);
         navigateButton.setBackground(new Color(0x191919));
         navigateButton.setForeground(Color.WHITE);
         navigateButton.setFont(new Font("Arial", Font.BOLD, 25));
         navigateButton.setFocusable(false);
         panel.add(navigateButton);
-
-        mapButton = new JButton("MAP");
+    
+        mapButton = new RectangularButtonPanel("MAP");
         mapButton.setBounds(60, 310, 260, 60);
         mapButton.setBackground(new Color(0x191919));
         mapButton.setForeground(Color.WHITE);
         mapButton.setFont(new Font("Arial", Font.BOLD, 25));
         mapButton.setFocusable(false);
         panel.add(mapButton);
-
-        aboutButton = new JButton("ABOUT");
+    
+        aboutButton = new RectangularButtonPanel("ABOUT");
         aboutButton.setBounds(60, 410, 260, 60);
         aboutButton.setBackground(new Color(0x191919));
         aboutButton.setForeground(Color.WHITE);
         aboutButton.setFont(new Font("Arial", Font.BOLD, 25));
         aboutButton.setFocusable(false);
         panel.add(aboutButton);
-
-        helpButton = new JButton("HELP");
+    
+        helpButton = new RectangularButtonPanel("HELP");
         helpButton.setBounds(60, 510, 260, 60);
         helpButton.setBackground(new Color(0x191919));
         helpButton.setForeground(Color.WHITE);
