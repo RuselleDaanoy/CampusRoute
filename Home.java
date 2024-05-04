@@ -5,8 +5,10 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Home extends JFrame {
-    // Button has no hover and functions
-    private JButton navigateButton, mapButton, aboutButton, helpButton;
+    RectangularButtonPanel navigateButton;
+    RectangularButtonPanel aboutButton;
+    RectangularButtonPanel helpButton;
+    RectangularButtonPanel mapButton;
 
     public Home() {
         initComponents();
