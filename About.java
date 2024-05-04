@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class About extends JFrame implements ActionListener {
-    RectangularButtonPanel returnButton;
+    ChoiceButtons returnButton;
 
     public About() {
         initComponents();
