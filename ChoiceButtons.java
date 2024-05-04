@@ -1,4 +1,3 @@
-//package here::
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +20,7 @@ public class ChoiceButtons extends JButton {
         setForeground(TEXT_COLOR);
         setFont(new Font("Arial", Font.BOLD, 15));
         setFocusable(false);
+        setBorder(BorderFactory.createLineBorder(TEXT_COLOR, 1));
     }
 
     private void addHoverEffect() {
@@ -28,11 +28,13 @@ public class ChoiceButtons extends JButton {
             @Override
             public void mouseEntered(MouseEvent e) {
                 setBackground(HOVER_COLOR);
+                setBorder(BorderFactory.createLineBorder(HOVER_COLOR, 1));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 setBackground(NORMAL_COLOR);
+                setBorder(BorderFactory.createLineBorder(TEXT_COLOR, 1));
             }
         });
     }
