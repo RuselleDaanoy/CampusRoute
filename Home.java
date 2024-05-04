@@ -1,10 +1,10 @@
 package finals;
 
 import java.awt.*;
-// import java.awt.event.*;
+import java.awt.event.*;
 import javax.swing.*;
 
-public class Home extends JFrame {
+public class Home extends JFrame implements ActionListener {
     RectangularButtonPanel navigateButton;
     RectangularButtonPanel aboutButton;
     RectangularButtonPanel helpButton;
@@ -125,6 +125,7 @@ public class Home extends JFrame {
         aboutButton.setForeground(Color.WHITE);
         aboutButton.setFont(new Font("Arial", Font.BOLD, 25));
         aboutButton.setFocusable(false);
+        aboutButton.addActionListener(this);
         panel.add(aboutButton);
     
         helpButton = new RectangularButtonPanel("HELP");
@@ -136,6 +137,24 @@ public class Home extends JFrame {
         panel.add(helpButton);
         
         return panel;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == navigateButton) {
+            // Source code goes here...
+        }
+
+        if (e.getSource() == mapButton) {
+            // Source code goes here...
+        }
+
+        if (e.getSource() == aboutButton) {
+            new About().setVisible(true);
+        }
+
+        if (e.getSource() == helpButton) {
+            // Source code goes here...
+        }
     }
 
     public static void main(String[] args) {
