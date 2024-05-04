@@ -83,7 +83,7 @@ public class About extends JFrame implements ActionListener {
         description.setHorizontalAlignment(JLabel.CENTER);
         panel.add(description);
 
-        returnButton = new RectangularButtonPanel("RETURN");
+        returnButton = new ChoiceButtons("RETURN");
         returnButton.setBounds(50, 370, 130, 40);
         returnButton.setBackground(new Color(0x191919));
         returnButton.setForeground(Color.WHITE);
