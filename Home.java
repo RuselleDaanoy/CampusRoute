@@ -3,10 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Home extends JFrame implements ActionListener{
-    RectangularButtonPanel navigateButton;
-    RectangularButtonPanel aboutButton;
-    RectangularButtonPanel helpButton;
-    RectangularButtonPanel mapButton;
+    ChoiceButtons navigateButton, mapButton, aboutButton, helpButton;
 
     public Home() {
         initComponents();
@@ -19,6 +16,7 @@ public class Home extends JFrame implements ActionListener{
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         // Change file path for it to display
         ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\WalkToTheRight.png");
@@ -101,7 +99,7 @@ public class Home extends JFrame implements ActionListener{
         heading2.setHorizontalAlignment(JLabel.CENTER);
         panel.add(heading2);
     
-        navigateButton = new RectangularButtonPanel("NAVIGATE");
+        navigateButton = new ChoiceButtons("NAVIGATE", "PATH");
         navigateButton.setBounds(55, 210, 260, 60);
         navigateButton.setBackground(new Color(0x191919));
         navigateButton.setForeground(Color.WHITE);
@@ -110,7 +108,7 @@ public class Home extends JFrame implements ActionListener{
         navigateButton.addActionListener(this);
         panel.add(navigateButton);
     
-        mapButton = new RectangularButtonPanel("MAP");
+        mapButton = new ChoiceButtons("MAP","FLOOR");
         mapButton.setBounds(55, 310, 260, 60);
         mapButton.setBackground(new Color(0x191919));
         mapButton.setForeground(Color.WHITE);
@@ -119,7 +117,7 @@ public class Home extends JFrame implements ActionListener{
         mapButton.addActionListener(this);
         panel.add(mapButton);
     
-        aboutButton = new RectangularButtonPanel("ABOUT");
+        aboutButton = new ChoiceButtons("ABOUT", "US");
         aboutButton.setBounds(55, 410, 260, 60);
         aboutButton.setBackground(new Color(0x191919));
         aboutButton.setForeground(Color.WHITE);
@@ -128,7 +126,7 @@ public class Home extends JFrame implements ActionListener{
         aboutButton.addActionListener(this);
         panel.add(aboutButton);
     
-        helpButton = new RectangularButtonPanel("HELP");
+        helpButton = new ChoiceButtons("HELP", "GUIDE");
         helpButton.setBounds(55, 510, 260, 60);
         helpButton.setBackground(new Color(0x191919));
         helpButton.setForeground(Color.WHITE);
