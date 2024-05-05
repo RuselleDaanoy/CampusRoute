@@ -1,5 +1,3 @@
-//package here::
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,6 +9,7 @@ public class RectangularButtonPanel extends JPanel {
 
     public RectangularButtonPanel(String buttonText) {
         this.buttonText = buttonText;
+        
         setPreferredSize(new Dimension(100, 35)); 
         setOpaque(false);
         addMouseListener(new MouseAdapter() {
@@ -45,7 +44,7 @@ public class RectangularButtonPanel extends JPanel {
         if (hovered) {
             g2d.setColor(new Color(56, 182, 255)); // #38B6FF
         } else {
-            g2d.setColor(Color.BLACK);
+            g2d.setColor(new Color(0x191919));
         }
         g2d.fillRect(0, 0, getWidth(), getHeight());
 
