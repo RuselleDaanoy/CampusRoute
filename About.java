@@ -4,7 +4,6 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class About extends JFrame implements ActionListener {
-    // Return Button has no hover function
     private ChoiceButtons returnButton;
 
     public About() {
@@ -18,6 +17,7 @@ public class About extends JFrame implements ActionListener {
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         // Change file path for it to display
         ImageIcon icon = new ImageIcon("C:\\\\Users\\\\thoby\\\\WALK\\\\src\\\\W.png");
@@ -49,13 +49,13 @@ public class About extends JFrame implements ActionListener {
         panel.add(walk);
 
         JLabel trans = new JLabel("TO THE");
-        trans.setBounds(340, 170, 1280, 30);
+        trans.setBounds(330, 170, 1280, 30);
         trans.setForeground(Color.WHITE);
         trans.setFont(new Font("Arial", Font.ITALIC, 25));
         panel.add(trans);
 
         JLabel right = new JLabel("RIGHT");
-        right.setBounds(430, 165, 400, 100);
+        right.setBounds(420, 170, 400, 100);
         right.setForeground(new Color(0x38B6FF));
         right.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 100));
         panel.add(right);
@@ -66,7 +66,7 @@ public class About extends JFrame implements ActionListener {
         //panel.add(logoLabel);
 
         LogoButton logo = new LogoButton(">");
-        logo.setBounds(30, 30, 300, 300);
+        logo.setBounds(70, 30, 300, 300);
         logo.setBackground(new Color(0x191919));
         logo.setForeground(Color.WHITE);
 
@@ -105,10 +105,10 @@ public class About extends JFrame implements ActionListener {
         panel.add(description);
 
         returnButton = new ChoiceButtons("RETURN", "HOME");
-        returnButton.setBounds(560, 330, 130, 40);
+        returnButton.setBounds(580, 330, 130, 40);
         returnButton.setBackground(new Color(0x191919));
         returnButton.setForeground(Color.WHITE);
-        returnButton.setFont(new Font("Arial", Font.BOLD, 15));
+        returnButton.setFont(new Font("Arial", Font.BOLD, 20));
         returnButton.setFocusable(false);
         returnButton.addActionListener(this);
         panel.add(returnButton);
