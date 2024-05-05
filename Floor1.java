@@ -53,7 +53,7 @@ public class Floor1 extends JFrame implements ActionListener{
         headingLabel.setForeground(Color.decode("#191919"));
         heading.add(headingLabel);
 
-        ImageIcon floor = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\1111111111.png");
+        ImageIcon floor = new ImageIcon("src/1st Floor.png");
         JLabel floorPlan = new JLabel(floor);
         floorPlan.setBounds(0, 70, 1280, 600);
         panel.add(floorPlan);
