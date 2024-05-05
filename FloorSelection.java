@@ -18,6 +18,7 @@ public class FloorSelection extends JFrame implements ActionListener {
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         // change path as needed
         ImageIcon icon = new ImageIcon("");
