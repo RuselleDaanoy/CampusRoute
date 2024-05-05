@@ -1,4 +1,4 @@
-package finals;
+// package finals;
 
 import java.awt.*;
 import javax.swing.*;
@@ -13,7 +13,7 @@ public class Receipt extends JFrame {
 
     private void initComponents() {
         setTitle("Campus Route Path Navigator");
-        setSize(new Dimension(400, 600));
+        setSize(new Dimension(400, 650));
 
         setResizable(false);
         setLocationRelativeTo(null);
@@ -78,7 +78,7 @@ public class Receipt extends JFrame {
 
         // Footer
         JLabel footer = new JLabel("REMEMBER TO ALWAYS WALK TO THE RIGHT!");
-        footer.setBounds(0, 550, 400, 15);
+        footer.setBounds(0, 600, 400, 15);
         footer.setForeground(Color.BLACK);
         footer.setFont(new Font("Courier", Font.BOLD, 15));
         footer.setHorizontalAlignment(JLabel.CENTER);
