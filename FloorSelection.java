@@ -1,13 +1,12 @@
-// package name here:::
+//package name::::
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-public class FloorSelection extends JFrame implements ActionListener{
-
+public class FloorSelection extends JFrame implements ActionListener {
     private ChoiceButtons returnButton;
+    private FloorButtonHover[] floorButtons;
 
     public FloorSelection() {
         initComponents();
@@ -20,7 +19,7 @@ public class FloorSelection extends JFrame implements ActionListener{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // change path
+        // change path as needed
         ImageIcon icon = new ImageIcon("");
         setIconImage(icon.getImage());
 
@@ -55,20 +54,29 @@ public class FloorSelection extends JFrame implements ActionListener{
 
         // Floor panels
         int floorX = 100;
-        for (int i = 1; i <= 5; i++) {
-            FloorButtonHover floorPanel = new FloorButtonHover(); //changing from panel to button
-            floorPanel.setLayout(new BorderLayout());
-            floorPanel.setBounds(floorX, 178, 180, 370);
-            floorPanel.setForeground(Color.BLACK);
-            floorPanel.setBackground(Color.WHITE);
-            floorPanel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 50));
+        floorButtons = new FloorButtonHover[5]; 
+        for (int i = 0; i < floorButtons.length; i++) {
+            floorButtons[i] = new FloorButtonHover(); 
+            floorButtons[i].setLayout(new BorderLayout());
+            floorButtons[i].setBounds(floorX, 178, 180, 370);
+            floorButtons[i].setForeground(Color.BLACK);
+            floorButtons[i].setBackground(Color.WHITE);
+            floorButtons[i].setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 50));
 
-            JLabel floorLabel = new JLabel(Integer.toString(i));
+            JLabel floorLabel = new JLabel(Integer.toString(i + 1));
             floorLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 170));
             floorLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            floorPanel.add(floorLabel, BorderLayout.SOUTH);
+            floorButtons[i].add(floorLabel, BorderLayout.SOUTH);
 
-            panel.add(floorPanel);
+            final int floorNumber = i + 1; 
+            floorButtons[i].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    openFloorClass(floorNumber);
+                }
+            });
+            
+            panel.add(floorButtons[i]); // Add floor buttons to panel
             floorX += 220; // adjust the horizontal gaps
         }
 
@@ -85,6 +93,33 @@ public class FloorSelection extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnButton) {
             dispose(); 
+        }
+    }
+
+    private void openFloorClass(int floorNumber) {
+        switch (floorNumber) {
+            case 1:
+                Floor1 floor1 = new Floor1();
+                floor1.setVisible(true);
+                break;
+            case 2:
+                Floor2 floor2 = new Floor2();
+                floor2.setVisible(true);
+                break;
+            case 3:
+                Floor3 floor3 = new Floor3();
+                floor3.setVisible(true);
+                break;
+            case 4:
+                Floor4 floor4 = new Floor4();
+                floor4.setVisible(true);
+                break;
+            case 5:
+                Floor5 floor5 = new Floor5();
+                floor5.setVisible(true);
+                break;
+            default:
+                break;
         }
     }
     
