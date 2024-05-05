@@ -1,88 +1,95 @@
-//package name::::::
+// package name here:::
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FloorSelection extends JFrame implements ActionListener {
-    private ChoiceButtons returnButton; 
+public class FloorSelection extends JFrame implements ActionListener{
+
+    private ChoiceButtons returnButton;
 
     public FloorSelection() {
         initComponents();
     }
 
     private void initComponents() {
-        setTitle("Campus Route");
+        setTitle("Campus Route Path Navigator");
         setSize(new Dimension(1280, 720));
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // Change the path to your image file for the icon
-        ImageIcon icon = new ImageIcon("C:\\Users\\rusel\\Downloads\\WalkToTheRight.png");
+        // change path
+        ImageIcon icon = new ImageIcon("");
         setIconImage(icon.getImage());
 
-        JPanel mainPanel = new JPanel(null);
-        mainPanel.setBounds(0, 0, 1280, 720);
-        mainPanel.setBackground(Color.decode("#191919"));
-        
+        add(mainPanel());
+    }
+
+    private JPanel mainPanel() {
+        JPanel panel = new JPanel(null);
+        panel.setBounds(0, 0, 1280, 720);
+        panel.setBackground(Color.decode("#191919"));
+
         JPanel subHeading = new JPanel();
-        subHeading.setBounds(500, 50, 300, 38);
+        subHeading.setBounds(420, 50, 430, 38);
         subHeading.setBackground(Color.decode("#191919"));
-        mainPanel.add(subHeading);
+        panel.add(subHeading);
 
         JLabel subHeadingLabel = new JLabel("WALK TO THE RIGHT FLOOR");
-        subHeadingLabel.setBounds(500, 30, 300, 40);
+        subHeadingLabel.setBounds(420, 60, 300, 30);
         subHeadingLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         subHeadingLabel.setForeground(Color.decode("#38B6FF"));
         subHeading.add(subHeadingLabel);
 
         JPanel heading = new JPanel();
-        heading.setBounds(100, 70, 1060, 90);
+        heading.setBounds(100, 70, 1080, 90);
         heading.setBackground(Color.decode("#191919"));
-        mainPanel.add(heading);
+        panel.add(heading);
 
         JLabel headingLabel = new JLabel("MAIN CAMPUS - MAIN BUILDING");
-        headingLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 68));
-        headingLabel.setForeground(Color.decode("#FFFFFF"));
+        headingLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 68)); 
+        headingLabel.setForeground(Color.WHITE);
         heading.add(headingLabel);
 
         // Floor panels
         int floorX = 100;
         for (int i = 1; i <= 5; i++) {
-            JPanel floorPanel = new JPanel();
+            FloorButtonHover floorPanel = new FloorButtonHover(); //changing from panel to button
             floorPanel.setLayout(new BorderLayout());
-            floorPanel.setBounds(floorX, 168, 180, 370);
+            floorPanel.setBounds(floorX, 178, 180, 370);
             floorPanel.setForeground(Color.BLACK);
             floorPanel.setBackground(Color.WHITE);
+            floorPanel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 50));
 
             JLabel floorLabel = new JLabel(Integer.toString(i));
-            floorLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 160));
+            floorLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 170));
             floorLabel.setHorizontalAlignment(SwingConstants.CENTER);
             floorPanel.add(floorLabel, BorderLayout.SOUTH);
 
-            mainPanel.add(floorPanel);
+            panel.add(floorPanel);
             floorX += 220; // adjust the horizontal gaps
         }
 
-        returnButton = new ChoiceButtons("RETURN");
-        returnButton.setBounds(100, 570, 180, 60);
-        returnButton.addActionListener(this); 
-        mainPanel.add(returnButton);
-
-        add(mainPanel);
+        returnButton = new ChoiceButtons("RETURN", "HOME");
+        returnButton.setBounds(560, 600, 130, 40);
+        returnButton.setFont(new Font("Arial", Font.BOLD, 20)); 
+        returnButton.addActionListener(this);
+        panel.add(returnButton);
+    
+        return panel;
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnButton) {
             dispose(); 
         }
     }
-
+    
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new FloorSelection().setVisible(true);
-        });
+        FloorSelection floorSelection = new FloorSelection();
+        floorSelection.setVisible(true);
     }
 }
