@@ -18,6 +18,7 @@ public class Floor3 extends JFrame implements ActionListener{
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         // change path
         ImageIcon icon = new ImageIcon("");
@@ -52,13 +53,12 @@ public class Floor3 extends JFrame implements ActionListener{
         headingLabel.setForeground(Color.decode("#191919"));
         heading.add(headingLabel);
 
-        ImageIcon floor = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\2nd Floor.png");
+        ImageIcon floor = new ImageIcon("src\\3rd Floor.png");
         JLabel floorPlan = new JLabel(floor);
         floorPlan.setBounds(0, 60, 1280, 600);
         panel.add(floorPlan);
 
         returnButton = new ChoiceButtonsWhiteBG("RETURN", "FLOOR");
-        returnButton.setBounds(50, 600, 130, 40);
         returnButton.setBounds(560, 600, 130, 40);
         returnButton.addActionListener(this);
         panel.add(returnButton);
