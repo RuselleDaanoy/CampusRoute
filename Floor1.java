@@ -52,13 +52,13 @@ public class Floor1 extends JFrame implements ActionListener{
         headingLabel.setForeground(Color.decode("#191919"));
         heading.add(headingLabel);
 
-        ImageIcon floor = new ImageIcon("");
+        ImageIcon floor = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\1111111111.png");
         JLabel floorPlan = new JLabel(floor);
-        floorPlan.setBounds(0, 60, 1280, 600);
+        floorPlan.setBounds(0, 70, 1280, 600);
         panel.add(floorPlan);
 
         returnButton = new ChoiceButtonsWhiteBG("RETURN", "FLOOR");
-        returnButton.setBounds(560, 600, 130, 40);
+        returnButton.setBounds(580, 600, 130, 40);
         returnButton.addActionListener(this);
         panel.add(returnButton);
 
