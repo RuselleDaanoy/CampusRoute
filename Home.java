@@ -1,10 +1,8 @@
-package finals;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Home extends JFrame implements ActionListener {
+public class Home extends JFrame implements ActionListener{
     RectangularButtonPanel navigateButton;
     RectangularButtonPanel aboutButton;
     RectangularButtonPanel helpButton;
@@ -15,7 +13,7 @@ public class Home extends JFrame implements ActionListener {
     }
     
     private void initComponents() {
-        setTitle("Campus Route");
+        setTitle("Campus Route Path Navigator");
         setSize(new Dimension(1280, 720));
 
         setResizable(false);
@@ -23,7 +21,7 @@ public class Home extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Change file path for it to display
-        ImageIcon icon = new ImageIcon("C:\\Users\\kamil\\OneDrive\\Desktop\\Kiosk\\demo\\src\\main\\java\\finals\\WalkToTheRight.png");
+        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\WalkToTheRight.png");
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -54,7 +52,7 @@ public class Home extends JFrame implements ActionListener {
         JLabel walk = new JLabel("WALK");
         walk.setBounds(90, 150, 600, 180);
         walk.setForeground(Color.WHITE);
-        walk.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 180));
+        walk.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 175));
         panel.add(walk);
 
         JLabel trans = new JLabel("TO THE");
@@ -66,7 +64,7 @@ public class Home extends JFrame implements ActionListener {
         JLabel right = new JLabel("RIGHT");
         right.setBounds(250, 300, 600, 180);
         right.setForeground(new Color(0x38B6FF));
-        right.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 180));
+        right.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 175));
         panel.add(right);
 
         JLabel campus = new JLabel("MAIN CAMPUS");
@@ -90,51 +88,53 @@ public class Home extends JFrame implements ActionListener {
         panel.setBackground(Color.WHITE);
     
         JLabel heading1 = new JLabel("FIND YOUR ROUTE,");
-        heading1.setBounds(0, 100, 380, 30);
+        heading1.setBounds(0, 120, 375, 30);
         heading1.setForeground(new Color(0x191919));
-        heading1.setFont(new Font("Arial", Font.ITALIC, 28));
+        heading1.setFont(new Font("Arial", Font.ITALIC, 20));
         heading1.setHorizontalAlignment(JLabel.CENTER);
         panel.add(heading1);
     
         JLabel heading2 = new JLabel("START A PATH!");
-        heading2.setBounds(0, 130, 380, 30);
-        heading2.setForeground(new Color(0x191919));
-        heading2.setFont(new Font("Arial", Font.ITALIC, 28));
+        heading2.setBounds(0, 142, 375, 30);
+        heading2.setForeground(new Color(0x38B6FF));
+        heading2.setFont(new Font("Arial", Font.ITALIC, 20));
         heading2.setHorizontalAlignment(JLabel.CENTER);
         panel.add(heading2);
     
         navigateButton = new RectangularButtonPanel("NAVIGATE");
-        navigateButton.setBounds(60, 210, 260, 60);
+        navigateButton.setBounds(55, 210, 260, 60);
         navigateButton.setBackground(new Color(0x191919));
         navigateButton.setForeground(Color.WHITE);
-        navigateButton.setFont(new Font("Arial", Font.BOLD, 25));
+        navigateButton.setFont(new Font("Arial", Font.BOLD, 20));
         navigateButton.setFocusable(false);
+        navigateButton.addActionListener(this);
         panel.add(navigateButton);
     
         mapButton = new RectangularButtonPanel("MAP");
-        mapButton.setBounds(60, 310, 260, 60);
+        mapButton.setBounds(55, 310, 260, 60);
         mapButton.setBackground(new Color(0x191919));
         mapButton.setForeground(Color.WHITE);
-        mapButton.setFont(new Font("Arial", Font.BOLD, 25));
+        mapButton.setFont(new Font("Arial", Font.BOLD, 20));
         mapButton.setFocusable(false);
         mapButton.addActionListener(this);
         panel.add(mapButton);
     
         aboutButton = new RectangularButtonPanel("ABOUT");
-        aboutButton.setBounds(60, 410, 260, 60);
+        aboutButton.setBounds(55, 410, 260, 60);
         aboutButton.setBackground(new Color(0x191919));
         aboutButton.setForeground(Color.WHITE);
-        aboutButton.setFont(new Font("Arial", Font.BOLD, 25));
+        aboutButton.setFont(new Font("Arial", Font.BOLD, 20));
         aboutButton.setFocusable(false);
         aboutButton.addActionListener(this);
         panel.add(aboutButton);
     
         helpButton = new RectangularButtonPanel("HELP");
-        helpButton.setBounds(60, 510, 260, 60);
+        helpButton.setBounds(55, 510, 260, 60);
         helpButton.setBackground(new Color(0x191919));
         helpButton.setForeground(Color.WHITE);
-        helpButton.setFont(new Font("Arial", Font.BOLD, 25));
+        helpButton.setFont(new Font("Arial", Font.BOLD, 20));
         helpButton.setFocusable(false);
+        helpButton.addActionListener(this);
         panel.add(helpButton);
         
         return panel;
@@ -142,19 +142,20 @@ public class Home extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == navigateButton) {
-            // Source code goes here...
+          
         }
-
         if (e.getSource() == mapButton) {
-            new FloorSelection().setVisible(true);
+            SwingUtilities.invokeLater(() -> {
+                new FloorSelection().setVisible(true);
+            });
         }
-
         if (e.getSource() == aboutButton) {
-            new About().setVisible(true);
+            SwingUtilities.invokeLater(() -> {
+                new About().setVisible(true);
+            });
         }
-
         if (e.getSource() == helpButton) {
-            // Source code goes here...
+           
         }
     }
 
