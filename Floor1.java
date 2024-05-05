@@ -18,6 +18,7 @@ public class Floor1 extends JFrame implements ActionListener{
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         // change path
         ImageIcon icon = new ImageIcon("");
@@ -58,7 +59,7 @@ public class Floor1 extends JFrame implements ActionListener{
         panel.add(floorPlan);
 
         returnButton = new ChoiceButtonsWhiteBG("RETURN", "FLOOR");
-        returnButton.setBounds(580, 600, 130, 40);
+        returnButton.setBounds(560, 600, 130, 40);
         returnButton.addActionListener(this);
         panel.add(returnButton);
 
