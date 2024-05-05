@@ -117,6 +117,7 @@ public class Home extends JFrame implements ActionListener {
         mapButton.setForeground(Color.WHITE);
         mapButton.setFont(new Font("Arial", Font.BOLD, 25));
         mapButton.setFocusable(false);
+        mapButton.addActionListener(this);
         panel.add(mapButton);
     
         aboutButton = new RectangularButtonPanel("ABOUT");
@@ -145,7 +146,7 @@ public class Home extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == mapButton) {
-            // Source code goes here...
+            new FloorSelection().setVisible(true);
         }
 
         if (e.getSource() == aboutButton) {
