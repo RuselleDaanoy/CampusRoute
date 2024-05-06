@@ -140,7 +140,9 @@ public class Home extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == navigateButton) {
+            SwingUtilities.invokeLater(() -> {
                 new Navigate().setVisible(true);
+            });      
         }
         if (e.getSource() == mapButton) {
             SwingUtilities.invokeLater(() -> {
