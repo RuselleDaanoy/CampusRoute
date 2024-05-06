@@ -27,6 +27,11 @@ public class ChatbotGUI {
 
         // Create the input field
         JTextField inputField = new JTextField(30);
+        inputField.setBorder(BorderFactory.createLineBorder(Color.decode("#38B6FF"), 2)); // Set border color to blue and line thickness to 2
+        inputField.setFont(new Font("Arial", Font.PLAIN, 14)); // Set font to Arial, plain style, and size 14
+        inputField.setBackground(Color.decode("#191919"));
+        inputField.setForeground(Color.WHITE);
+        inputField.setCaretColor(Color.BLACK);
 
         // Create the send button
         ChoiceButtons sendButton = new ChoiceButtons("Send", "Send");
@@ -66,7 +71,7 @@ public class ChatbotGUI {
         StyleConstants.setAlignment(leftAlign, StyleConstants.ALIGN_LEFT);
         StyleConstants.setForeground(leftAlign, Color.decode("#38B6FF"));
         StyleConstants.setFontFamily(leftAlign, "Arial");
-        StyleConstants.setFontSize(leftAlign, 13);
+        StyleConstants.setFontSize(leftAlign, 14);
         //StyleConstants.setBackground(leftAlign, Color.decode("#4caf50")); // Bot's bubble color
 
         try {
@@ -90,7 +95,7 @@ public class ChatbotGUI {
     StyleConstants.setAlignment(userStyle, StyleConstants.ALIGN_RIGHT);
     StyleConstants.setForeground(userStyle, Color.WHITE);
     StyleConstants.setFontFamily(userStyle, "Arial");
-    StyleConstants.setFontSize(userStyle, 13);
+    StyleConstants.setFontSize(userStyle, 14);
     // StyleConstants.setBackground(userStyle, Color.decode("#007bff")); // User's bubble color
 
     // Style for chatbot's message bubble
@@ -98,7 +103,7 @@ public class ChatbotGUI {
     StyleConstants.setAlignment(botStyle, StyleConstants.ALIGN_LEFT);
     StyleConstants.setForeground(botStyle, Color.decode("#38B6FF"));
     StyleConstants.setFontFamily(botStyle, "Arial"); // Set the font family
-    StyleConstants.setFontSize(botStyle, 13); // Set the font size
+    StyleConstants.setFontSize(botStyle, 14); // Set the font size
     // StyleConstants.setBackground(botStyle, Color.decode("#4caf50")); // Bot's bubble color
 
         try {
@@ -120,4 +125,5 @@ public class ChatbotGUI {
         // Clear the input field
         inputField.setText("");
     }
+
 }
