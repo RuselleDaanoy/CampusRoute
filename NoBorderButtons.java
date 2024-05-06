@@ -4,10 +4,10 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class AddRemoveButtons extends JButton {
+public class NoBorderButtons extends JButton {
     private Color TEXT_COLOR;
 
-    public AddRemoveButtons(String text, Color TEXT_COLOR) {
+    public NoBorderButtons(String text, Color TEXT_COLOR) {
         super(text);
         this.TEXT_COLOR = TEXT_COLOR;
         
@@ -20,7 +20,7 @@ public class AddRemoveButtons extends JButton {
         setBackground(new Color(0x191919));
         setForeground(TEXT_COLOR);
         setSize(130, 40);
-        setFont(new Font("Arial", Font.BOLD, 40));
+        setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 50));
         setFocusable(false);
         setContentAreaFilled(false);
         setBorder(null);
@@ -30,12 +30,12 @@ public class AddRemoveButtons extends JButton {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                setFont(new Font("Arial", Font.BOLD, 80));
+                setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 70));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                setFont(new Font("Arial", Font.BOLD, 40));
+                setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 50));
             }
         });
     }
