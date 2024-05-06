@@ -89,7 +89,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         for (int i = 6; i < floorButtons.length; i++) {
             floorButtons[i] = new FloorButtonHover(); 
             floorButtons[i].setLayout(new BorderLayout());
-            floorButtons[i].setBounds(floorX, 10, 180, 225);
+            floorButtons[i].setBounds(floorX, 5, 180, 225);
             floorButtons[i].setForeground(Color.BLACK);
             floorButtons[i].setBackground(Color.WHITE);
             floorButtons[i].setFont(new Font("Arial", Font.BOLD, 50));
