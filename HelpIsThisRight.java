@@ -118,17 +118,11 @@ public class HelpIsThisRight extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == moreButton) {
-            SwingUtilities.invokeLater(() -> {
-                new HelpNavigate().setVisible(true);
-            });
             dispose(); 
         }
 
         if (e.getSource() == directionsButton) {
-            SwingUtilities.invokeLater(() -> {
                 new HelpReady().setVisible(true);
-            });
-            dispose(); 
         }
     }
     
