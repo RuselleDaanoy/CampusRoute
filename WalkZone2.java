@@ -177,20 +177,51 @@ public class WalkZone2 extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == footer) {
             clickedPanels.clear();
-
-            if (one.isClicked()) clickedPanels.add(one);
-            if (two.isClicked()) clickedPanels.add(two);
-            if (three.isClicked()) clickedPanels.add(three);
-            if (four.isClicked()) clickedPanels.add(four);
-            if (five.isClicked()) clickedPanels.add(five);
-            if (six.isClicked()) clickedPanels.add(six);
-            if (seven.isClicked()) clickedPanels.add(seven);
-            if (eight.isClicked()) clickedPanels.add(eight);
-            if (nine.isClicked()) clickedPanels.add(nine);
-            if (ten.isClicked()) clickedPanels.add(ten);
-            
-            if (clickedPanels.isEmpty()) {
-                showErrorDialog("Choose a zone to visit!");
+            int count = 0; // Counter to track number of clicked panels
+    
+            if (one.isClicked()) {
+                clickedPanels.add(one);
+                count++;
+            }
+            if (two.isClicked()) {
+                clickedPanels.add(two);
+                count++;
+            }
+            if (three.isClicked()) {
+                clickedPanels.add(three);
+                count++;
+            }
+            if (four.isClicked()) {
+                clickedPanels.add(four);
+                count++;
+            }
+            if (five.isClicked()) {
+                clickedPanels.add(five);
+                count++;
+            }
+            if (six.isClicked()) {
+                clickedPanels.add(six);
+                count++;
+            }
+            if (seven.isClicked()) {
+                clickedPanels.add(seven);
+                count++;
+            }
+            if (eight.isClicked()) {
+                clickedPanels.add(eight);
+                count++;
+            }
+            if (nine.isClicked()) {
+                clickedPanels.add(nine);
+                count++;
+            }
+            if (ten.isClicked()) {
+                clickedPanels.add(ten);
+                count++;
+            }
+    
+            if (count != 1) {
+                showErrorDialog("Choose exactly one zone to visit!");
             } else {
                 new Ready().setVisible(true);
                 dispose();
