@@ -109,17 +109,11 @@ public class HelpNavigate extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnButton) {
-            SwingUtilities.invokeLater(() -> {
-                new Home().setVisible(true);
-            });
             dispose(); 
         }
 
         if (e.getSource() == checkButton) {
-            SwingUtilities.invokeLater(() -> {
-                new HelpIsThisRight().setVisible(true);
-            });
-            dispose(); 
+            new HelpIsThisRight().setVisible(true);
         }
     }
     
