@@ -120,10 +120,10 @@ public class HelpReady extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
        
         if (e.getSource() == logo) {
-            disposeAllFrames(); 
+            disposeAllFrames();
             SwingUtilities.invokeLater(() -> {
                 new Home().setVisible(true);
-            });
+            });    
         }
        
         if (e.getSource() == pictureButton) {
@@ -141,7 +141,6 @@ public class HelpReady extends JFrame implements ActionListener {
             }
         }
     }
-
     
     public static void main(String[] args) {
         HelpReady ready = new HelpReady();
