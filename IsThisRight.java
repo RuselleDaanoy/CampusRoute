@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class IsThisRight extends JFrame implements ActionListener {
-    private ChoiceButtons returnButton, printButton; 
+    private ChoiceButtons moreButton, directionsButton; 
 
     public IsThisRight() {
         initComponents();
@@ -47,17 +47,29 @@ public class IsThisRight extends JFrame implements ActionListener {
         or1.setForeground(Color.WHITE);
         panel.add(or1);
         
-        returnButton = new ChoiceButtons("ADD MORE", "+");
-        returnButton.setBounds(350, 570, 250, 60);
-        returnButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25)); 
-        returnButton.addActionListener(this);
-        panel.add(returnButton);
+        moreButton = new ChoiceButtons("ADD MORE", "+");
+        moreButton.setBounds(350, 570, 250, 60);
+        moreButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25)); 
+        moreButton.addActionListener(this);
+        panel.add(moreButton);
 
-        printButton = new ChoiceButtons("GET DIRECTIONS", "SHOW PATH");
-        printButton.setBounds(710, 570, 250, 60);
-        printButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25)); 
-        printButton.addActionListener(this);
-        panel.add(printButton);
+        JLabel forgot = new JLabel("Forgot a point?");
+        forgot.setFont(new Font("Arial", Font.ITALIC, 15)); 
+        forgot.setBounds(420,635,200,25);
+        forgot.setForeground(new Color(0x38B6FF));
+        panel.add(forgot);
+
+        directionsButton = new ChoiceButtons("GET DIRECTIONS", "RIGHT");
+        directionsButton.setBounds(710, 570, 250, 60);
+        directionsButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25)); 
+        directionsButton.addActionListener(this);
+        panel.add(directionsButton);
+
+        JLabel turn = new JLabel("There's no turning back.");
+        turn.setFont(new Font("Arial", Font.ITALIC, 15)); 
+        turn.setBounds(755,635,200,25);
+        turn.setForeground(new Color(0x38B6FF));
+        panel.add(turn);
 
         panel.add(resultPanel());
 
@@ -76,8 +88,14 @@ public class IsThisRight extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == returnButton) {
+        if (e.getSource() == moreButton) {
             dispose(); 
+        }
+
+        if (e.getSource() == directionsButton) {
+            SwingUtilities.invokeLater(() -> {
+                new Ready().setVisible(true);
+            });
         }
     }
     
