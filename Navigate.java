@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Navigate extends JFrame implements ActionListener {
-    private ChoiceButtons returnButton, printButton, searchButton; 
+    private ChoiceButtons returnButton, checkButton, searchButton; 
     private BottomBorderTextField search;
 
     public Navigate() {
@@ -58,11 +58,11 @@ public class Navigate extends JFrame implements ActionListener {
         returnButton.addActionListener(this);
         panel.add(returnButton);
 
-        printButton = new ChoiceButtons("CHECK PATH", "REVIEW");
-        printButton.setBounds(980, 600, 250, 60);
-        printButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25)); 
-        printButton.addActionListener(this);
-        panel.add(printButton);
+        checkButton = new ChoiceButtons("CHECK PATH", "REVIEW");
+        checkButton.setBounds(970, 600, 250, 60);
+        checkButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25)); 
+        checkButton.addActionListener(this);
+        panel.add(checkButton);
     
         return panel;
     }
@@ -71,6 +71,12 @@ public class Navigate extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnButton) {
             dispose(); 
+        }
+
+        if (e.getSource() == checkButton) {
+            SwingUtilities.invokeLater(() -> {
+                new IsThisRight().setVisible(true);
+            });
         }
     }
     
