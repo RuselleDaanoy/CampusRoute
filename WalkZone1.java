@@ -7,7 +7,7 @@ import java.util.*;
 
 public class WalkZone1 extends JFrame implements ActionListener {
     private NoBorderButtons footer;
-    private FloorButtonHover[] floorButtons;
+    private FloorButtonHover one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve;
     private ArrayList<JPanel> clickedPanels;
     
     public WalkZone1() {
@@ -61,7 +61,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         panel.setBounds(0, 110, 1280, 480);
         panel.setBackground(new Color(0x191919));
 
-        one = new ZoneClicked();
+        one = new FloorButtonHover();
         one.setBounds(75, 20, 180, 215);
         one.setBackground(Color.WHITE);
         panel.add(one);
@@ -72,7 +72,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         one.setLayout(new BorderLayout());
         one.add(zone1, BorderLayout.CENTER);
 
-        two = new ZoneClicked();
+        two = new FloorButtonHover();
         two.setBounds(265, 20, 180, 215);
         two.setBackground(Color.WHITE);
         panel.add(two);
@@ -83,7 +83,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         two.setLayout(new BorderLayout());
         two.add(zone2, BorderLayout.CENTER);
 
-        three = new ZoneClicked();
+        three = new FloorButtonHover();
         three.setBounds(455, 20, 180, 215);
         three.setBackground(Color.WHITE);
         panel.add(three);
@@ -94,7 +94,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         three.setLayout(new BorderLayout());
         three.add(zone3, BorderLayout.CENTER);
 
-        four = new ZoneClicked();
+        four = new FloorButtonHover();
         four.setBounds(645, 20, 180, 215);
         four.setBackground(Color.WHITE);
         panel.add(four);
@@ -105,7 +105,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         four.setLayout(new BorderLayout());
         four.add(zone4, BorderLayout.CENTER);
 
-        five = new ZoneClicked();
+        five = new FloorButtonHover();
         five.setBounds(835, 20, 180, 215);
         five.setBackground(Color.WHITE);
         panel.add(five);
@@ -116,7 +116,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         five.setLayout(new BorderLayout());
         five.add(zone5, BorderLayout.CENTER);
 
-        six = new ZoneClicked();
+        six = new FloorButtonHover();
         six.setBounds(1025, 20, 180, 215);
         six.setBackground(Color.WHITE);
         panel.add(six);
@@ -127,7 +127,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         six.setLayout(new BorderLayout());
         six.add(zone6, BorderLayout.CENTER);
 
-        seven = new ZoneClicked();
+        seven = new FloorButtonHover();
         seven.setBounds(75, 245, 180, 215);
         seven.setBackground(Color.WHITE);
         panel.add(seven);
@@ -138,7 +138,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         seven.setLayout(new BorderLayout());
         seven.add(zone7, BorderLayout.CENTER);
 
-        eight = new ZoneClicked();
+        eight = new FloorButtonHover();
         eight.setBounds(265, 245, 180, 215);
         eight.setBackground(Color.WHITE);
         panel.add(eight);
@@ -149,7 +149,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         eight.setLayout(new BorderLayout());
         eight.add(zone8, BorderLayout.CENTER);
 
-        nine = new ZoneClicked();
+        nine = new FloorButtonHover();
         nine.setBounds(455, 245, 180, 215);
         nine.setBackground(Color.WHITE);
         panel.add(nine);
@@ -160,7 +160,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         nine.setLayout(new BorderLayout());
         nine.add(zone9, BorderLayout.CENTER);
 
-        ten = new ZoneClicked();
+        ten = new FloorButtonHover();
         ten.setBounds(645, 245, 180, 215);
         ten.setBackground(Color.WHITE);
         panel.add(ten);
@@ -171,7 +171,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         ten.setLayout(new BorderLayout());
         ten.add(zone10, BorderLayout.CENTER);
 
-        eleven = new ZoneClicked();
+        eleven = new FloorButtonHover();
         eleven.setBounds(835, 245, 180, 215);
         eleven.setBackground(Color.WHITE);
         panel.add(eleven);
@@ -182,7 +182,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         eleven.setLayout(new BorderLayout());
         eleven.add(zone11, BorderLayout.CENTER);
 
-        twelve = new ZoneClicked();
+        twelve = new FloorButtonHover();
         twelve.setBounds(1025, 245, 180, 215);
         twelve.setBackground(Color.WHITE);
         panel.add(twelve);
