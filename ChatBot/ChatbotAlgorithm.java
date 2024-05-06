@@ -21,7 +21,7 @@ public class ChatbotAlgorithm {
         responseMap.put(new HashSet<>(Arrays.asList("hi", "hello")), 
             () -> "Hello! How can I assist you today?");
 
-        responseMap.put(new HashSet<>(Arrays.asList("kiosk", "use", "this")), 
+        responseMap.put(new HashSet<>(Arrays.asList("kiosk", "use")), 
             ChatbotAlgorithm::getKioskUsageInstructions);
 
         responseMap.put(new HashSet<>(Arrays.asList("tuition", "pay")), 
@@ -79,7 +79,9 @@ public class ChatbotAlgorithm {
 
     private static String getProgrammers() {
         return "This program was developed with the dedication and expertise of our team:\n\n" +
+
                 "Faye Buri, Ruselle Daanoy, Pia Macalanda, and Thoby Ralleta.\n\n" +
+
                 "Together, we strive to deliver excellence in every line of code. <3";
     }
 }
