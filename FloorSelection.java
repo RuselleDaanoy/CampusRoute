@@ -93,6 +93,9 @@ public class FloorSelection extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnButton) {
+            SwingUtilities.invokeLater(() -> {
+                new Home().setVisible(true);
+            });
             dispose(); 
         }
     }
