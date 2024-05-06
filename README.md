@@ -1,5 +1,11 @@
 # Campus Route Path Navigator 
 
+WALK TO YOUR RIGHT is an innovative is an innovative campus route path vavigator developed as part of the Design and Analysis of Algorithm course. 
+The project aims to streamline navigation within the Main Building of New Era University - Main Campus for its residents. 
+Leveraging primarily the Dijkstra Algorithm, the system provides efficient guidance through the complex layout of the building.
+
+Programmed by Faye Camille Buri, Venus Ruselle B. Daanoy, Pia Katleya V. Macalanda, and Thoby Jim R. Ralleta | 2BSCS-1
+
 > [!IMPORTANT]
 > Start With Home.java
 
