@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Ready extends JFrame implements ActionListener {
-    private ChoiceButtons returnButton, printButton;
+    private ChoiceButtons printButton, pictureButton;
     private LogoButton logo;
     
 
@@ -55,16 +55,17 @@ public class Ready extends JFrame implements ActionListener {
         or2.setForeground(Color.WHITE);
         panel.add(or2);
         
-        returnButton = new ChoiceButtons("TAKE A PICTURE", "GOT IT!");
-        returnButton.setBounds(150, 585, 250, 60);
-        returnButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25)); 
-        returnButton.addActionListener(this);
-        panel.add(returnButton);
+        pictureButton = new ChoiceButtons("TAKE A PICTURE", "GOT IT!");
+        pictureButton.setBounds(150, 585, 250, 60);
+        pictureButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 25)); 
+        pictureButton.addActionListener(this);
+        panel.add(pictureButton);
 
         logo = new LogoButton(">");
         logo.setBounds(480, 460, 300, 300);
         logo.setBackground(new Color(0x191919));
         logo.setForeground(Color.WHITE);
+        logo.addActionListener(this);
         panel.add(logo);
 
         printButton = new ChoiceButtons("PRINT GUIDE", "SHOW RECEIPT");
@@ -90,8 +91,24 @@ public class Ready extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == returnButton) {
+       
+        if (e.getSource() == logo) {
+            SwingUtilities.invokeLater(() -> {
+                new Home().setVisible(true);
+            });
             dispose(); 
+        }
+       
+        if (e.getSource() == pictureButton) {
+            SwingUtilities.invokeLater(() -> {
+                new Capture().setVisible(true);
+            });
+        }
+
+        if (e.getSource() == printButton) {
+            SwingUtilities.invokeLater(() -> {
+                new ReceiptIntegrated().setVisible(true);
+            });
         }
     }
     
