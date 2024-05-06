@@ -17,6 +17,7 @@ public class ChatbotAlgorithm {
     static {
         // Populate the response map with sets of keywords and corresponding response suppliers
 
+        // Common Response
         responseMap.put(new HashSet<>(Arrays.asList("hi", "hello")), 
             () -> "Hello! How can I assist you today?");
 
@@ -34,6 +35,20 @@ public class ChatbotAlgorithm {
             
         responseMap.put(new HashSet<>(Arrays.asList("programmer", "code", "program", "own")), 
             ChatbotAlgorithm::getProgrammers);
+
+
+
+        // FAQS
+        responseMap.put(new HashSet<>(Arrays.asList("campus", "map", "university")), 
+            () -> "The kiosk can display an interactive campus map. Select the ‘Map’ option from the main menu to view it.");
+
+        responseMap.put(new HashSet<>(Arrays.asList("not working", "unreponsive")), 
+            () -> "If the kiosk is unresponsive, please report the issue to the campus IT support or visit the nearest information desk for assistance.");
+
+        responseMap.put(new HashSet<>(Arrays.asList("print", "get")), 
+            () -> "Some kiosks are equipped with printing capabilities. If available, you can print maps and directions by selecting the ‘Print’ option.");
+
+
     }
 
     // Method to process the query and return a response
