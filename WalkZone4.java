@@ -7,7 +7,7 @@ import java.util.*;
 
 public class WalkZone4 extends JFrame implements ActionListener {
     private NoBorderButtons footer;
-    private FloorButtonHover[] floorButtons;
+    private FloorButtonHover one, two, three, four, five, six, seven, eight, nine, ten, eleven;
     private ArrayList<JPanel> clickedPanels;
 
     public WalkZone4() {
@@ -43,8 +43,7 @@ public class WalkZone4 extends JFrame implements ActionListener {
         heading.setHorizontalAlignment(JLabel.CENTER);
         panel.add(heading);
 
-        panel.add(zonePanels1());
-        panel.add(zonePanels2());
+        panel.add(zonePanels());
 
         footer = new NoBorderButtons("READY TO WALK?", Color.decode("#38B6FF"));
         footer.setBounds(0, 610, 1280, 70);
@@ -57,56 +56,131 @@ public class WalkZone4 extends JFrame implements ActionListener {
         return panel;
     }
 
-    private JPanel zonePanels1() {
+    private JPanel zonePanels() {
         JPanel panel = new JPanel(null);
-        panel.setBounds(0, 110, 1280, 240);
+        panel.setBounds(0, 110, 1280, 480);
         panel.setBackground(new Color(0x191919));
 
-        int floorX = 75;
-        floorButtons = new FloorButtonHover[6];
-        for (int i = 0; i < floorButtons.length; i++) {
-            floorButtons[i] = new FloorButtonHover(); 
-            floorButtons[i].setLayout(new BorderLayout());
-            floorButtons[i].setBounds(floorX, 10, 180, 225);
-            floorButtons[i].setForeground(Color.BLACK);
-            floorButtons[i].setBackground(Color.WHITE);
-            floorButtons[i].setFont(new Font("Arial", Font.BOLD, 50));
+        one = new FloorButtonHover();
+        one.setBounds(75, 20, 180, 215);
+        one.setBackground(Color.WHITE);
+        panel.add(one);
 
-            JLabel floorLabel = new JLabel(Integer.toString(i + 1));
-            floorLabel.setFont(new Font("Arial", Font.BOLD, 150));
-            floorLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            floorButtons[i].add(floorLabel, BorderLayout.SOUTH);
-            
-            panel.add(floorButtons[i]); // Add floor buttons to panel
-            floorX += 190; // adjust the horizontal gaps
-        }
+        JLabel zone1 = new JLabel("1");
+        zone1.setFont(new Font("Arial", Font.BOLD, 150));
+        zone1.setHorizontalAlignment(SwingConstants.CENTER);
+        one.setLayout(new BorderLayout());
+        one.add(zone1, BorderLayout.CENTER);
 
-        return panel;
-    }
+        two = new FloorButtonHover();
+        two.setBounds(265, 20, 180, 215);
+        two.setBackground(Color.WHITE);
+        panel.add(two);
 
-    private JPanel zonePanels2() {
-        JPanel panel = new JPanel(null);
-        panel.setBounds(0, 350, 1280, 240);
-        panel.setBackground(new Color(0x191919));
+        JLabel zone2 = new JLabel("2");
+        zone2.setFont(new Font("Arial", Font.BOLD, 150));
+        zone2.setHorizontalAlignment(SwingConstants.CENTER);
+        two.setLayout(new BorderLayout());
+        two.add(zone2, BorderLayout.CENTER);
 
-        int floorX = 170;
-        floorButtons = new FloorButtonHover[11]; 
-        for (int i = 6; i < floorButtons.length; i++) {
-            floorButtons[i] = new FloorButtonHover(); 
-            floorButtons[i].setLayout(new BorderLayout());
-            floorButtons[i].setBounds(floorX, 5, 180, 225);
-            floorButtons[i].setForeground(Color.BLACK);
-            floorButtons[i].setBackground(Color.WHITE);
-            floorButtons[i].setFont(new Font("Arial", Font.BOLD, 50));
+        three = new FloorButtonHover();
+        three.setBounds(455, 20, 180, 215);
+        three.setBackground(Color.WHITE);
+        panel.add(three);
 
-            JLabel floorLabel = new JLabel(Integer.toString(i + 1));
-            floorLabel.setFont(new Font("Arial", Font.BOLD, 150));
-            floorLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            floorButtons[i].add(floorLabel, BorderLayout.SOUTH);
-            
-            panel.add(floorButtons[i]); // Add floor buttons to panel
-            floorX += 190; // adjust the horizontal gaps
-        }
+        JLabel zone3 = new JLabel("3");
+        zone3.setFont(new Font("Arial", Font.BOLD, 150));
+        zone3.setHorizontalAlignment(SwingConstants.CENTER);
+        three.setLayout(new BorderLayout());
+        three.add(zone3, BorderLayout.CENTER);
+
+        four = new FloorButtonHover();
+        four.setBounds(645, 20, 180, 215);
+        four.setBackground(Color.WHITE);
+        panel.add(four);
+
+        JLabel zone4 = new JLabel("4");
+        zone4.setFont(new Font("Arial", Font.BOLD, 150));
+        zone4.setHorizontalAlignment(SwingConstants.CENTER);
+        four.setLayout(new BorderLayout());
+        four.add(zone4, BorderLayout.CENTER);
+
+        five = new FloorButtonHover();
+        five.setBounds(835, 20, 180, 215);
+        five.setBackground(Color.WHITE);
+        panel.add(five);
+
+        JLabel zone5 = new JLabel("5");
+        zone5.setFont(new Font("Arial", Font.BOLD, 150));
+        zone5.setHorizontalAlignment(SwingConstants.CENTER);
+        five.setLayout(new BorderLayout());
+        five.add(zone5, BorderLayout.CENTER);
+
+        six = new FloorButtonHover();
+        six.setBounds(1025, 20, 180, 215);
+        six.setBackground(Color.WHITE);
+        panel.add(six);
+
+        JLabel zone6 = new JLabel("6");
+        zone6.setFont(new Font("Arial", Font.BOLD, 150));
+        zone6.setHorizontalAlignment(SwingConstants.CENTER);
+        six.setLayout(new BorderLayout());
+        six.add(zone6, BorderLayout.CENTER);
+
+        seven = new FloorButtonHover();
+        seven.setBounds(170, 245, 180, 215);
+        seven.setBackground(Color.WHITE);
+        panel.add(seven);
+
+        JLabel zone7 = new JLabel("7");
+        zone7.setFont(new Font("Arial", Font.BOLD, 150));
+        zone7.setHorizontalAlignment(SwingConstants.CENTER);
+        seven.setLayout(new BorderLayout());
+        seven.add(zone7, BorderLayout.CENTER);
+
+        eight = new FloorButtonHover();
+        eight.setBounds(360, 245, 180, 215);
+        eight.setBackground(Color.WHITE);
+        panel.add(eight);
+
+        JLabel zone8 = new JLabel("8");
+        zone8.setFont(new Font("Arial", Font.BOLD, 150));
+        zone8.setHorizontalAlignment(SwingConstants.CENTER);
+        eight.setLayout(new BorderLayout());
+        eight.add(zone8, BorderLayout.CENTER);
+
+        nine = new FloorButtonHover();
+        nine.setBounds(550, 245, 180, 215);
+        nine.setBackground(Color.WHITE);
+        panel.add(nine);
+
+        JLabel zone9 = new JLabel("9");
+        zone9.setFont(new Font("Arial", Font.BOLD, 150));
+        zone9.setHorizontalAlignment(SwingConstants.CENTER);
+        nine.setLayout(new BorderLayout());
+        nine.add(zone9, BorderLayout.CENTER);
+
+        ten = new FloorButtonHover();
+        ten.setBounds(740, 245, 180, 215);
+        ten.setBackground(Color.WHITE);
+        panel.add(ten);
+
+        JLabel zone10 = new JLabel("10");
+        zone10.setFont(new Font("Arial", Font.BOLD, 150));
+        zone10.setHorizontalAlignment(SwingConstants.CENTER);
+        ten.setLayout(new BorderLayout());
+        ten.add(zone10, BorderLayout.CENTER);
+
+        eleven = new FloorButtonHover();
+        eleven.setBounds(930, 245, 180, 215);
+        eleven.setBackground(Color.WHITE);
+        panel.add(eleven);
+
+        JLabel zone11 = new JLabel("11");
+        zone11.setFont(new Font("Arial", Font.BOLD, 150));
+        zone11.setHorizontalAlignment(SwingConstants.CENTER);
+        eleven.setLayout(new BorderLayout());
+        eleven.add(zone11, BorderLayout.CENTER);
 
         return panel;
     }
