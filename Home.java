@@ -142,28 +142,16 @@ public class Home extends JFrame implements ActionListener{
         if (e.getSource() == navigateButton) {
             SwingUtilities.invokeLater(() -> {
                 new Navigate().setVisible(true);
-            });   
-            dispose();;  
+            });    
         }
         if (e.getSource() == mapButton) {
-            SwingUtilities.invokeLater(() -> {
                 new FloorSelection().setVisible(true);
-            });
-            dispose();
         }
         if (e.getSource() == aboutButton) {
-            SwingUtilities.invokeLater(() -> {
                 new About().setVisible(true);
-            });
-            dispose();
         }
         if (e.getSource() == helpButton) {
-           
-            SwingUtilities.invokeLater(() -> {
                 new HelpNavigate().setVisible(true);
-            });
-
-            dispose();
         }
     }
 
