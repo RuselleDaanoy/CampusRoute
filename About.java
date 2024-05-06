@@ -80,16 +80,9 @@ public class About extends JFrame implements ActionListener {
         JPanel panel = new JPanel(null);
         panel.setBounds(0, 270, 1280, 490);
         panel.setBackground(new Color(0x191919));
-
-        //'WALK TO YOUR RIGHT' is an innovative project developed as part 
-        //of the Design and Analysis of Algorithm course. The project aims 
-        //to streamline navigation within the Main Building 
-        //of New Era University - Main Campus for its residents. 
-        //Leveraging primarily the Dijkstra Algorithm, the system provides efficient guidance 
-        //through the complex layout of the building.
-
+        
         String note = "<html><div style='text-align: center;'>"
-                    + "is an innovative project developed as part of the Design and Analysis of Algorithm course.<br>"
+                    + "is an innovative campus route path navigator developed as part of the Design and Analysis of Algorithm course.<br>"
                     + "The project aims to streamline navigation within the Main Building of New Era University - Main Campus for its residents and visitors. <br>"
                     + "Leveraging primarily the Dijkstra Algorithm, the system provides efficient guidance through the complex layout of the building. <br><br>"
 
