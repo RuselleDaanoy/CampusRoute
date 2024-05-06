@@ -3,12 +3,16 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.*;
 
 public class WalkZone2 extends JFrame implements ActionListener {
+    private NoBorderButtons footer;
     private FloorButtonHover[] floorButtons;
+    private ArrayList<JPanel> clickedPanels;
 
     public WalkZone2() {
         initComponents();
+        clickedPanels = new ArrayList<>();
     }
 
     private void initComponents() {
@@ -42,11 +46,12 @@ public class WalkZone2 extends JFrame implements ActionListener {
         panel.add(zonePanels1());
         panel.add(zonePanels2());
 
-        JLabel footer = new JLabel("READY TO WALK?");
+        footer = new NoBorderButtons("READY TO WALK?", Color.decode("#38B6FF"));
         footer.setBounds(0, 610, 1280, 70);
         footer.setForeground(new Color(0x38B6FF));
         footer.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 70));
         footer.setHorizontalAlignment(JLabel.CENTER);
+        footer.addActionListener(this);
         panel.add(footer);
 
         return panel;
@@ -106,15 +111,24 @@ public class WalkZone2 extends JFrame implements ActionListener {
         return panel;
     }
 
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == footer) {
+            if (clickedPanels.isEmpty()) {
+                showErrorDialog("Choose a zone to visit!");
+            } else {
+                new Ready().setVisible(true);
+                dispose();
+            }
+        }
+    }
+
+    private void showErrorDialog(String message) {
+        JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             new WalkZone2().setVisible(true);
         });
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
 }
