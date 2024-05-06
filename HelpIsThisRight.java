@@ -128,6 +128,7 @@ public class HelpIsThisRight extends JFrame implements ActionListener {
             SwingUtilities.invokeLater(() -> {
                 new HelpReady().setVisible(true);
             });
+            dispose(); 
         }
     }
     
