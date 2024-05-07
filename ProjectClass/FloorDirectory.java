@@ -35,13 +35,13 @@ public class FloorDirectory extends JFrame implements ActionListener {
         panel.setBackground(Color.decode("#191919"));
 
         JPanel subHeading = new JPanel();
-        subHeading.setBounds(420, 50, 430, 38);
+        subHeading.setBounds(420, 40, 430, 38);
         subHeading.setBackground(Color.decode("#191919"));
         panel.add(subHeading);
 
-        JLabel subHeadingLabel = new JLabel("WALK TO THE RIGHT FLOOR");
+        JLabel subHeadingLabel = new JLabel("WALK TO THE RIGHT");
         subHeadingLabel.setBounds(420, 60, 300, 30);
-        subHeadingLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        subHeadingLabel.setFont(new Font("Arial", Font.BOLD, 20));
         subHeadingLabel.setForeground(Color.decode("#38B6FF"));
         subHeading.add(subHeadingLabel);
 
