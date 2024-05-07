@@ -1,33 +1,29 @@
-// package finals;
-
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import javax.swing.*;
-
 public class ReceiptIntegrated extends JFrame implements ActionListener {
 
     LogoButton logo;
+    String results;
+    JTextArea contentArea;
     
-    public ReceiptIntegrated() {
+    public ReceiptIntegrated(String results) {
+        this.results = results;
         initComponents();
     }
 
     private void initComponents() {
         setTitle("Campus Route Path Navigator");
         setSize(new Dimension(1280, 720));
-
         setResizable(false);
         setLocationRelativeTo(null);
         setUndecorated(true);
-        // setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // Change path
-        ImageIcon icon = new ImageIcon("");
+        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\Resources\\WalkToTheRight.png");
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -58,7 +54,7 @@ public class ReceiptIntegrated extends JFrame implements ActionListener {
         JPanel panel = new JPanel(null);
         panel.setBounds(5, 5, 1110, 550);
         panel.setBackground(new Color(0x191919));
-
+                       
         String note = "<html><div style='text-align: center;'>"
                        + "THANK YOU AND<br>"
                        + "HAVE A SAFE DAY<br>"
@@ -66,8 +62,8 @@ public class ReceiptIntegrated extends JFrame implements ActionListener {
                        
         JLabel content = new JLabel(note);
         content.setBounds(85, 225, 200, 100);
-        content.setForeground(Color.WHITE);
-        content.setFont(new Font("Arial", Font.PLAIN, 20));
+        content.setForeground(Color.decode("#38B6FF"));
+        content.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 20));
         panel.add(content);
 
         logo = new LogoButton(">");
@@ -121,13 +117,18 @@ public class ReceiptIntegrated extends JFrame implements ActionListener {
         border.setFont(new Font("Courier New", Font.PLAIN, 15));
         panel.add(border);
 
-        // Content (No Algorithm Implementation yet) = TEMPORARY HOLDER FOR CONTENT
-        String note = "Your content goes here...";
+        JLabel contentLabel = new JLabel("GUIDE:");
+        contentLabel.setBounds(20, 200, 300, 15);
+        contentLabel.setForeground(Color.BLACK);
+        contentLabel.setFont(new Font("Courier New", Font.PLAIN, 15));
+        panel.add(contentLabel);
 
-        JLabel content = new JLabel(note.toUpperCase());
-        content.setBounds(20, 200, 360, 15);
+        // Display the results
+        JTextArea content = new JTextArea(results.toUpperCase());
+        content.setBounds(20, 220, 360, 300);
         content.setForeground(Color.BLACK);
-        content.setFont(new Font("Courier New", Font.PLAIN, 15));
+        content.setFont(new Font("Courier New", Font.BOLD, 15));
+        content.setEditable(false);
         panel.add(content);
 
         // Footer
@@ -163,14 +164,11 @@ public class ReceiptIntegrated extends JFrame implements ActionListener {
         Window[] windows = Window.getWindows();
         for (Window window : windows) {
             if (window instanceof JFrame) {
-            window.dispose();
+                window.dispose();
             }
         }
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new ReceiptIntegrated().setVisible(true);
-        });
     }
 }
