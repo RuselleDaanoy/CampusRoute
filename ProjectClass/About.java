@@ -1,10 +1,9 @@
-//package name::
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class About extends JFrame implements ActionListener {
+    // Return Button has no hover function
     private ChoiceButtons returnButton;
 
     public About() {
@@ -21,7 +20,7 @@ public class About extends JFrame implements ActionListener {
         setUndecorated(true);
 
         // Change file path for it to display
-        ImageIcon icon = new ImageIcon("C:\\\\Users\\\\thoby\\\\WALK\\\\src\\\\W.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -81,12 +80,19 @@ public class About extends JFrame implements ActionListener {
         JPanel panel = new JPanel(null);
         panel.setBounds(0, 270, 1280, 490);
         panel.setBackground(new Color(0x191919));
-        
-        String note = "<html><div style='text-align: center;'>"
-                    + "is an innovative campus route path navigator developed as part of the Design and Analysis of Algorithm course.<br>"
-                    + "The project aims to streamline navigation within the Main Building of New Era University - Main Campus for its residents and visitors. <br>"
-                    + "Leveraging primarily the Dijkstra Algorithm, the system provides efficient guidance through the complex layout of the building. <br><br>"
 
+        //'WALK TO YOUR RIGHT' is an innovative project developed as part 
+        //of the Design and Analysis of Algorithm course. The project aims 
+        //to streamline navigation within the Main Building 
+        //of New Era University - Main Campus for its residents. 
+        //Leveraging primarily the Dijkstra Algorithm, the system provides efficient guidance 
+        //through the complex layout of the building.
+
+        String note = "<html><div style='text-align: center;'>"
+                    + "is an innovative campus route path vavigator developed as part of the Design and Analysis of Algorithm course.<br>"
+                    + "This project aims to streamline navigation within the Main Building of New Era University - Main Campus for its residents and visitors. <br>"
+                    + "Leveraging primarily the Dijkstra Algorithm, the system provides efficient guidance through the complex layout of the building. <br><br>"
+                    
                     + "Programmed by <br>"
                     + "Faye Camille Buri, Venus Ruselle B. Daanoy, Pia Katleya V. Macalanda, and Thoby Jim R. Ralleta<br>"
                     + "Bachelor of Science in Computer Science | 2BSCS-1";
@@ -112,7 +118,7 @@ public class About extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnButton) {
-            dispose();
+            dispose(); 
         }
     }
     
