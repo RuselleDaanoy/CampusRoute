@@ -1,5 +1,3 @@
-//package name::::
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -14,10 +12,12 @@ public class FloorButtonHover extends JPanel implements MouseListener {
         this.addMouseListener(this);
         this.normalBackground = this.getBackground();
         this.normalForeground = this.getForeground();
+        setChildForeground(this, normalForeground);
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {
+    }
 
     @Override
     public void mousePressed(MouseEvent e) {}
@@ -28,7 +28,7 @@ public class FloorButtonHover extends JPanel implements MouseListener {
     @Override
     public void mouseEntered(MouseEvent e) {
         this.setBackground(hoverBackground);
-        setChildForeground(this, hoverForeground); 
+        setChildForeground(this, hoverForeground);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class FloorButtonHover extends JPanel implements MouseListener {
             if (component instanceof Container) {
                 setChildForeground((Container) component, color);
             }
-            component.setForeground(color);
+                component.setForeground(color);
         }
     }
 }
