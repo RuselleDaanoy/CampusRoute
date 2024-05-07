@@ -25,7 +25,7 @@ public class Ready extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\Resources\\WalkToTheRight.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -94,7 +94,6 @@ public class Ready extends JFrame implements ActionListener {
         JTextArea resulting = new JTextArea(result);
         resulting.setBounds(100, 65, 1100, 340);
         resulting.setFont(new Font("Courier New", Font.BOLD, 30));
-        resulting.setBackground(Color.WHITE);
         resulting.setForeground(Color.decode("#191919"));
 
         panel.add(resulting);
