@@ -70,7 +70,21 @@ public class FloorDistances {
             return floor4;
         }
 
-
+        public String[][] direction1 = {
+            {"0", "Straight", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
+            {"0", "0", "Right", "0", "0", "0", "Left", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "Straight", "Left", "0", "0", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "Right", "Left", "0", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "0", "0", "0", "Right", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "0", "0", "0", "0", "Straight", "Right", "0", "0"},
+            {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "Right", "0"},
+            {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
+            {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "Straight"},
+            {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"},
+        };
+    
         private String[][] direction2 = {
             {"0", "Left", "Right", "Straight", "0", "0", "0", "0", "0", "0"},
             {"Straight", "0", "0", "0", "0", "0", "Straight", "0", "0", "0"},
@@ -82,6 +96,17 @@ public class FloorDistances {
             {"0", "0", "0", "0", "Straight", "0", "0", "0", "Straight", "0"},
             {"0", "0", "0", "0", "0", "0", "0", "Right", "0", "Right"},
             {"0", "0", "Left", "0", "0", "0", "0", "0", "Left", "0"}
+        };
+
+        public String[][] direction3 = {
+            {"0", "Straight", "Left", "0", "0", "0", "0", "Right"},
+            {"Straight", "0", "0", "0", "0", "Left", "Right", "0"},
+            {"Left", "0", "0", "Right", "0", "0", "0", "0"},
+            {"0", "0", "Straight", "0", "Straight", "0", "0", "0"},
+            {"0", "0", "0", "Left", "0", "Right", "0", "0"},
+            {"0", "Right", "0", "0", "Straight", "0", "0", "0"},
+            {"0", "Left", "0", "0", "0", "0", "0", "Right"},
+            {"Right", "0", "0", "0", "0", "0", "Left", "0"},
         };
         
         private String[][] direction4 = {
@@ -98,8 +123,16 @@ public class FloorDistances {
             {"0", "0", "Right", "0", "0", "0", "0", "0", "0", "Left", "0"}
         };
 
+        public String[][] getDirection1() {
+            return direction1;
+        }
+
         public String[][] getDirection2() {
             return direction2;
+        }
+
+        public String[][] getDirection3() {
+            return direction3;
         }
 
         public String[][] getDirection4() {
