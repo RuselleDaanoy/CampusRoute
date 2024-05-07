@@ -19,7 +19,7 @@ public class Home extends JFrame implements ActionListener{
         setUndecorated(true);
 
         // Change file path for it to display
-        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\Resources\\WalkToTheRight.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -88,14 +88,14 @@ public class Home extends JFrame implements ActionListener{
         JLabel heading1 = new JLabel("FIND YOUR ROUTE,");
         heading1.setBounds(0, 120, 375, 30);
         heading1.setForeground(new Color(0x191919));
-        heading1.setFont(new Font("Arial", Font.ITALIC, 20));
+        heading1.setFont(new Font("Arial", Font.ITALIC | Font.BOLD, 20));
         heading1.setHorizontalAlignment(JLabel.CENTER);
         panel.add(heading1);
     
         JLabel heading2 = new JLabel("START A PATH!");
         heading2.setBounds(0, 142, 375, 30);
         heading2.setForeground(new Color(0x38B6FF));
-        heading2.setFont(new Font("Arial", Font.ITALIC, 20));
+        heading2.setFont(new Font("Arial", Font.ITALIC | Font.BOLD, 20));
         heading2.setHorizontalAlignment(JLabel.CENTER);
         panel.add(heading2);
     
@@ -108,7 +108,7 @@ public class Home extends JFrame implements ActionListener{
         navigateButton.addActionListener(this);
         panel.add(navigateButton);
     
-        mapButton = new ChoiceButtons("DIRECTORY","LOCATIONS");
+        mapButton = new ChoiceButtons("DIRECTORY","ZONES");
         mapButton.setBounds(55, 310, 260, 60);
         mapButton.setBackground(new Color(0x191919));
         mapButton.setForeground(Color.WHITE);
@@ -126,7 +126,7 @@ public class Home extends JFrame implements ActionListener{
         aboutButton.addActionListener(this);
         panel.add(aboutButton);
     
-        helpButton = new ChoiceButtons("HELP", "GUIDE");
+        helpButton = new ChoiceButtons("HELP", "CHAT");
         helpButton.setBounds(55, 510, 260, 60);
         helpButton.setBackground(new Color(0x191919));
         helpButton.setForeground(Color.WHITE);
@@ -145,13 +145,14 @@ public class Home extends JFrame implements ActionListener{
             });    
         }
         if (e.getSource() == mapButton) {
-            new FloorDirectory().setVisible(true);
+                new FloorDirectory().setVisible(true);
                
         }
         if (e.getSource() == aboutButton) {
                 new About().setVisible(true);
         }
         if (e.getSource() == helpButton) {
+                new ChatbotGUI(this).setVisible(true);
         }
     }
 
