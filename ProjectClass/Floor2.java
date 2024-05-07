@@ -1,4 +1,3 @@
-//package::
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +22,7 @@ public class Floor2 extends JFrame implements ActionListener{
         setUndecorated(true);
 
         // change path
-        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\Resources\\WalkToTheRight.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -35,28 +34,28 @@ public class Floor2 extends JFrame implements ActionListener{
         panel.setBackground(Color.decode("#191919"));
 
         JPanel heading = new JPanel();
-        heading.setBounds(100, 50, 1080, 90);
+        heading.setBounds(100, 40, 1080, 40);
         heading.setBackground(Color.decode("#191919"));
         panel.add(heading);
 
         JLabel headingLabel = new JLabel("MAIN BUILDING - 2ND FLOOR");
-        headingLabel.setFont(new Font("Arial", Font.BOLD, 20)); 
+        headingLabel.setFont(new Font("Arial", Font.BOLD, 25)); 
         headingLabel.setForeground(Color.decode("#38B6FF"));
         heading.add(headingLabel);
 
-        ImageIcon floor = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\Resources\\1st Floor.png");
+        ImageIcon floor = new ImageIcon(getClass().getResource("/2nd Floor with Zone.png"));
         JLabel floorPlan = new JLabel(floor);
         floorPlan.setBounds(0, 30, 1280, 600);
         panel.add(floorPlan);
 
         returnButton = new ChoiceButtons("RETURN", "HOME");
-        returnButton.setBounds(100, 600, 150, 50);
+        returnButton.setBounds(80, 620, 150, 50);
         returnButton.setFont(new Font("Arial", Font.BOLD, 20)); 
         returnButton.addActionListener(this);
         panel.add(returnButton);
 
         footer = new NoBorderButtons("PICK ZONE", Color.decode("#38B6FF"));
-        footer.setBounds(0, 585, 1280, 70);
+        footer.setBounds(330, 610, 600, 70);
         footer.setForeground(new Color(0x38B6FF));
         footer.setHorizontalAlignment(JLabel.CENTER);
         footer.addActionListener(this);
