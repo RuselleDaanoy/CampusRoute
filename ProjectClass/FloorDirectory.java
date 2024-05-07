@@ -22,7 +22,7 @@ public class FloorDirectory extends JFrame implements ActionListener {
         setUndecorated(true);
 
         // change path as needed
-        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\Resources\\WalkToTheRight.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         mainPanel();
