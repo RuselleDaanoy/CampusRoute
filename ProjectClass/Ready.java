@@ -8,7 +8,7 @@ public class Ready extends JFrame implements ActionListener {
     private int[][] nodes;
     private String[][] directions;
     private int zoneNumber;
-    private String result;
+    String result, vertical;
 
     public Ready(int[][] nodes, String[][] directions, int zoneNumber) {
         this.nodes = nodes;
@@ -89,10 +89,11 @@ public class Ready extends JFrame implements ActionListener {
 
         Dijkstra dijkstra = new Dijkstra(nodes, directions, zoneNumber);
         this.result = dijkstra.getResults();
+        this.vertical = dijkstra.getVerticalResults();
 
         JTextArea resulting = new JTextArea(result);
-        resulting.setBounds(100, 80, 1020, 340);
-        resulting.setFont(new Font("Courier New", Font.BOLD, 25));
+        resulting.setBounds(100, 65, 1100, 340);
+        resulting.setFont(new Font("Courier New", Font.BOLD, 30));
         resulting.setBackground(Color.WHITE);
         resulting.setForeground(Color.decode("#191919"));
 
@@ -112,17 +113,15 @@ public class Ready extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == pictureButton) {  
-            disposeAllFrames();
             SwingUtilities.invokeLater(() -> {
                 new Capture().setVisible(true);
                 
             });
         }
 
-        if (e.getSource() == printButton) {
-            disposeAllFrames();  
+        if (e.getSource() == printButton) { 
             SwingUtilities.invokeLater(() -> {
-                new ReceiptIntegrated(result).setVisible(true);
+                new ReceiptIntegrated(this.vertical).setVisible(true);
                 
             });
         }
