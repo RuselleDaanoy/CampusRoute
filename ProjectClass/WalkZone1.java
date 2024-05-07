@@ -9,6 +9,8 @@ public class WalkZone1 extends JFrame implements ActionListener {
     private NoBorderButtons footer;
     private ZoneClicked one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve;
     private ArrayList<ZoneClicked> clickedPanels;
+    int zoneNumber = 0;
+    FloorDistances fd;
     
     public WalkZone1() {
         initComponents();
@@ -25,7 +27,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         // setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Change file path as needed
-        ImageIcon icon = new ImageIcon("C:\\Users\\kamil\\OneDrive\\Desktop\\Kiosk\\demo\\src\\main\\resources\\WalkToTheRight.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -46,7 +48,7 @@ public class WalkZone1 extends JFrame implements ActionListener {
         panel.add(zonePanels());
 
         footer = new NoBorderButtons("READY TO WALK?", Color.decode("#38B6FF"));
-        footer.setBounds(0, 610, 1280, 70);
+        footer.setBounds(265, 610, 700, 70);
         footer.setForeground(new Color(0x38B6FF));
         footer.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 70));
         footer.setHorizontalAlignment(JLabel.CENTER);
@@ -199,73 +201,72 @@ public class WalkZone1 extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == footer) {
             clickedPanels.clear();
-            int count = 0; // Counter to track number of clicked panels
-    
+
             if (one.isClicked()) {
                 clickedPanels.add(one);
-                count++;
-            }
+                zoneNumber = 0;
+            };
             if (two.isClicked()) {
-                clickedPanels.add(two);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 1;
+            };
             if (three.isClicked()) {
-                clickedPanels.add(three);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 2;
+            };
             if (four.isClicked()) {
-                clickedPanels.add(four);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 3;
+            };
             if (five.isClicked()) {
-                clickedPanels.add(five);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 4;
+            };
             if (six.isClicked()) {
-                clickedPanels.add(six);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 5;
+            };
             if (seven.isClicked()) {
-                clickedPanels.add(seven);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 6;
+            };
             if (eight.isClicked()) {
-                clickedPanels.add(eight);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 7;
+            };
             if (nine.isClicked()) {
-                clickedPanels.add(nine);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 8;
+            };
             if (ten.isClicked()) {
-                clickedPanels.add(ten);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 9;
+            };
             if (eleven.isClicked()) {
-                clickedPanels.add(eleven);
-                count++;
-            }
+                clickedPanels.add(one);
+                zoneNumber = 10;
+            };
+  
             if (twelve.isClicked()) {
-                clickedPanels.add(twelve);
-                count++;
-            }
-    
-            if (count != 1) {
-                showErrorDialog("Choose exactly one zone to visit!");
+                clickedPanels.add(one);
+                zoneNumber = 11;
+            };
+  
+  
+            if (clickedPanels.isEmpty()) {
+                showErrorDialog("Choose a zone to visit!");
             } else {
-                new Ready().setVisible(true);
-                dispose();
+                SwingUtilities.invokeLater(() -> {
+            
+                    fd = new FloorDistances();
+
+                new Ready(fd.getFloor1(), fd.getDirection1(), zoneNumber).setVisible(true);
+                 });
             }
         }
     }
 
     private void showErrorDialog(String message) {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new WalkZone1().setVisible(true);
-        });
     }
 }
