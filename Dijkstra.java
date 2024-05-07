@@ -3,6 +3,7 @@ import java.util.*;
 public class Dijkstra {
     private static final int INFINITY = Integer.MAX_VALUE;
     private String results;
+    private String verticalResults;
     int[][] graph;
     String[][] direction1;
     int zoneNumber;
@@ -11,8 +12,11 @@ public class Dijkstra {
         return results;
     }
 
-    public Dijkstra(int[][] graph, String[][] direction, int zoneNumber) {
+    public String getVerticalResults() {
+        return verticalResults;
+    }
 
+    public Dijkstra(int[][] graph, String[][] direction, int zoneNumber) {
         this.graph = graph;
         this.direction1 = direction;
         this.zoneNumber = zoneNumber;
@@ -21,11 +25,49 @@ public class Dijkstra {
         Result result = findShortestPath(graph, direction1, 0, destinationNode);
 
         StringBuilder builder = new StringBuilder();
-        builder.append("Shortest Path from Zone 1 to Zone " + (destinationNode+1) + ": \n > " + result.path + "\n");
+        builder.append("Shortest Path from Zone 1 to Zone " + (destinationNode + 1) + ": \n > " + formatPath(result.path) + "\n");
         builder.append("Total Distance: \n > " + result.distance + " units \n");
-        builder.append("Directions: \n > " + Arrays.toString(result.directions.toArray()) + "\n");
+        builder.append("Directions: \n > " + formatDirectionsHorizontal(result.directions) + "\n");
         this.results = builder.toString();
 
+        StringBuilder verticalBuilder = new StringBuilder();
+        verticalBuilder.append("Shortest Path from Zone 1 to Zone " + (destinationNode + 1) + ":\n\n");
+        verticalBuilder.append(formatVerticalResults(result.path, result.directions, result.distance));
+        this.verticalResults = verticalBuilder.toString();
+    }
+
+    private String formatPath(List<Integer> path) {
+        StringBuilder formattedPath = new StringBuilder();
+        for (int i = 0; i < path.size(); i++) {
+            formattedPath.append(path.get(i) + 1); // Increment node name by 1
+            if (i < path.size() - 1) {
+                formattedPath.append(" -> ");
+            }
+        }
+        return formattedPath.toString();
+    }
+
+    private String formatDirectionsHorizontal(List<String> directions) {
+        StringBuilder formattedDirections = new StringBuilder();
+        for (int i = 0; i < directions.size(); i++) {
+            formattedDirections.append(directions.get(i));
+            if (i < directions.size() - 1) {
+                formattedDirections.append(", ");
+            }
+        }
+        return formattedDirections.toString();
+    }
+
+    private String formatVerticalResults(List<Integer> path, List<String> directions, int distance) {
+        StringBuilder verticalResults = new StringBuilder();
+        for (int i = 0; i < path.size(); i++) {
+            verticalResults.append("Zone ").append(path.get(i) + 1).append(" > ");
+            if (i < directions.size()) {
+                verticalResults.append(directions.get(i)).append("\n");
+            }
+        }
+        verticalResults.append("\nTotal Distance: ").append(distance).append(" units\n");
+        return verticalResults.toString();
     }
 
     private static class Result {
