@@ -1,4 +1,3 @@
-//package name:
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +6,8 @@ import java.awt.event.ActionListener;
 
 public class Floor1 extends JFrame implements ActionListener{
 
-    private ChoiceButtonsWhiteBG returnButton;
+    ChoiceButtons returnButton;
+    NoBorderButtons footer;
 
     public Floor1() {
         initComponents();
@@ -18,11 +18,11 @@ public class Floor1 extends JFrame implements ActionListener{
         setSize(new Dimension(1280, 720));
         setResizable(false);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
         setUndecorated(true);
 
         // change path
-        ImageIcon icon = new ImageIcon("");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -31,38 +31,35 @@ public class Floor1 extends JFrame implements ActionListener{
     private JPanel mainPanel() {
         JPanel panel = new JPanel(null);
         panel.setBounds(0, 0, 1280, 720);
-        panel.setBackground(Color.WHITE);
-
-        JPanel subHeading = new JPanel();
-        subHeading.setBounds(500, 50, 300, 35);
-        subHeading.setBackground(Color.WHITE);
-        panel.add(subHeading);
-
-        JLabel subHeadingLabel = new JLabel("WALK TO THE RIGHT ROOM");
-        subHeadingLabel.setBounds(420, 60, 300, 30);
-        subHeadingLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-        subHeadingLabel.setForeground(Color.decode("#38B6FF"));
-        subHeading.add(subHeadingLabel);
+        panel.setBackground(Color.decode("#191919"));
 
         JPanel heading = new JPanel();
-        heading.setBounds(100, 70, 1080, 90);
-        heading.setBackground(Color.WHITE);
+        heading.setBounds(100, 40, 1080, 40);
+        heading.setBackground(Color.decode("#191919"));
         panel.add(heading);
 
-        JLabel headingLabel = new JLabel("MAIN BUILDING - FLOOR 1");
-        headingLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 68)); 
-        headingLabel.setForeground(Color.decode("#191919"));
+        JLabel headingLabel = new JLabel("MAIN BUILDING - 1ST FLOOR");
+        headingLabel.setFont(new Font("Arial", Font.BOLD, 25)); 
+        headingLabel.setForeground(Color.decode("#38B6FF"));
         heading.add(headingLabel);
 
-        ImageIcon floor = new ImageIcon("src\\1st Floor.png");
+        ImageIcon floor = new ImageIcon(getClass().getResource("/1st Floor with Zone.png"));
         JLabel floorPlan = new JLabel(floor);
-        floorPlan.setBounds(0, 70, 1280, 600);
+        floorPlan.setBounds(0, 30, 1280, 600);
         panel.add(floorPlan);
 
-        returnButton = new ChoiceButtonsWhiteBG("RETURN", "FLOOR");
-        returnButton.setBounds(560, 600, 130, 40);
+        returnButton = new ChoiceButtons("RETURN", "HOME");
+        returnButton.setBounds(80, 620, 150, 50);
+        returnButton.setFont(new Font("Arial", Font.BOLD, 20)); 
         returnButton.addActionListener(this);
         panel.add(returnButton);
+
+        footer = new NoBorderButtons("PICK ZONE", Color.decode("#38B6FF"));
+        footer.setBounds(330, 610, 600, 70);
+        footer.setForeground(new Color(0x38B6FF));
+        footer.setHorizontalAlignment(JLabel.CENTER);
+        footer.addActionListener(this);
+        panel.add(footer);
 
         return panel;
     }
@@ -70,6 +67,12 @@ public class Floor1 extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == returnButton) {
             dispose();
+        }
+
+        if (e.getSource() == footer) {
+            SwingUtilities.invokeLater(() -> {
+                new WalkZone1().setVisible(true);
+            });
         }
     }
     
