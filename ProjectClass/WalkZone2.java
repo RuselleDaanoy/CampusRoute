@@ -27,7 +27,7 @@ public class WalkZone2 extends JFrame implements ActionListener {
         // setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Change file path as needed
-        ImageIcon icon = new ImageIcon("C:\\Users\\kamil\\OneDrive\\Desktop\\Kiosk\\demo\\src\\main\\resources\\WalkToTheRight.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -48,7 +48,7 @@ public class WalkZone2 extends JFrame implements ActionListener {
         panel.add(zonePanels());
 
         footer = new NoBorderButtons("READY TO WALK?", Color.decode("#38B6FF"));
-        footer.setBounds(0, 610, 1280, 70);
+        footer.setBounds(265, 610, 700, 70);
         footer.setForeground(new Color(0x38B6FF));
         footer.setHorizontalAlignment(JLabel.CENTER);
         footer.addActionListener(this);
