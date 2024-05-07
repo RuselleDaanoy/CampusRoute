@@ -1,5 +1,3 @@
-//package name::::
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,9 +5,15 @@ import java.awt.event.*;
 public class Ready extends JFrame implements ActionListener {
     private ChoiceButtons printButton, pictureButton;
     private LogoButton logo;
-    
+    private int[][] nodes;
+    private String[][] directions;
+    private int zoneNumber;
+    private String result;
 
-    public Ready() {
+    public Ready(int[][] nodes, String[][] directions, int zoneNumber) {
+        this.nodes = nodes;
+        this.directions = directions;
+        this.zoneNumber = zoneNumber;
         initComponents();
     }
 
@@ -21,8 +25,7 @@ public class Ready extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        // change path as needed
-        ImageIcon icon = new ImageIcon("");
+        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\Resources\\WalkToTheRight.png");
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -76,44 +79,61 @@ public class Ready extends JFrame implements ActionListener {
 
         panel.add(resultPanel());
 
-    
         return panel;
     }
 
     private JPanel resultPanel() {
-
         JPanel panel = new JPanel(null);
         panel.setBounds(40, 150, 1200, 340);
         panel.setBackground(Color.WHITE);
+
+        Dijkstra dijkstra = new Dijkstra(nodes, directions, zoneNumber);
+        this.result = dijkstra.getResults();
+
+        JTextArea resulting = new JTextArea(result);
+        resulting.setBounds(100, 80, 1020, 340);
+        resulting.setFont(new Font("Courier New", Font.BOLD, 25));
+        resulting.setBackground(Color.WHITE);
+        resulting.setForeground(Color.decode("#191919"));
+
+        panel.add(resulting);
 
         return panel;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       
-        if (e.getSource() == logo) {
+        if (e.getSource() == logo) {  
+            disposeAllFrames();
             SwingUtilities.invokeLater(() -> {
                 new Home().setVisible(true);
+                
             });
-            dispose(); 
         }
-       
-        if (e.getSource() == pictureButton) {
+
+        if (e.getSource() == pictureButton) {  
+            disposeAllFrames();
             SwingUtilities.invokeLater(() -> {
                 new Capture().setVisible(true);
+                
             });
         }
 
         if (e.getSource() == printButton) {
+            disposeAllFrames();  
             SwingUtilities.invokeLater(() -> {
-                new ReceiptIntegrated().setVisible(true);
+                new ReceiptIntegrated(result).setVisible(true);
+                
             });
         }
     }
-    
-    public static void main(String[] args) {
-        Ready ready = new Ready();
-        ready.setVisible(true);
+
+    private void disposeAllFrames() {
+        Window[] windows = Window.getWindows();
+        for (Window window : windows) {
+            if (window instanceof JFrame) {
+            window.dispose();
+            }
+        }
     }
 }
