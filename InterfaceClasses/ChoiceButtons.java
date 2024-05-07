@@ -1,5 +1,3 @@
-//package name::
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -25,7 +23,7 @@ public class ChoiceButtons extends JButton {
         setBackground(NORMAL_COLOR);
         setForeground(TEXT_COLOR);
         setSize(130, 40);
-        setFont(new Font("Arial", Font.BOLD, 15));
+        setFont(new Font("Arial", Font.BOLD, 20));
         setFocusable(false);
         setBorder(BorderFactory.createLineBorder(TEXT_COLOR, 1));
     }
@@ -47,5 +45,4 @@ public class ChoiceButtons extends JButton {
             }
         });
     }
-
 }
