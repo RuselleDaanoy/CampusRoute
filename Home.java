@@ -19,7 +19,7 @@ public class Home extends JFrame implements ActionListener{
         setUndecorated(true);
 
         // Change file path for it to display
-        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\WalkToTheRight.png");
+        ImageIcon icon = new ImageIcon("C:\\Users\\thoby\\WALK\\src\\Resources\\WalkToTheRight.png");
         setIconImage(icon.getImage());
 
         add(mainPanel());
@@ -108,7 +108,7 @@ public class Home extends JFrame implements ActionListener{
         navigateButton.addActionListener(this);
         panel.add(navigateButton);
     
-        mapButton = new ChoiceButtons("MAP","FLOOR");
+        mapButton = new ChoiceButtons("DIRECTORY","LOCATIONS");
         mapButton.setBounds(55, 310, 260, 60);
         mapButton.setBackground(new Color(0x191919));
         mapButton.setForeground(Color.WHITE);
@@ -141,17 +141,17 @@ public class Home extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == navigateButton) {
             SwingUtilities.invokeLater(() -> {
-                new Navigate().setVisible(true);
+                new FloorSelection().setVisible(true);
             });    
         }
         if (e.getSource() == mapButton) {
-                new FloorSelection().setVisible(true);
+            new FloorDirectory().setVisible(true);
+               
         }
         if (e.getSource() == aboutButton) {
                 new About().setVisible(true);
         }
         if (e.getSource() == helpButton) {
-                new HelpNavigate().setVisible(true);
         }
     }
 
