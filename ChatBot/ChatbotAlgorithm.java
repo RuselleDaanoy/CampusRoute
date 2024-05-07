@@ -1,7 +1,3 @@
-/*
- * Medyo okay na but still working with the faqs and responses
-*/
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -60,7 +56,6 @@ public class ChatbotAlgorithm {
                 return entry.getValue().get(); // Get the response using the supplier
             }
         }
-
         // Default response for unrecognized queries
         return "I'm sorry, I don't have information on that. Could you please provide more details or ask about something else?";
     }
