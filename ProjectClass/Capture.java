@@ -1,5 +1,3 @@
-//package name::
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +21,7 @@ public class Capture extends JFrame implements ActionListener{
         // setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Change path
-        ImageIcon icon = new ImageIcon("");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
         setIconImage(icon.getImage());
 
         add(mainPanel());
