@@ -3,20 +3,37 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class ChatbotGUI {
+public class ChatbotGUI extends JFrame implements ActionListener{
+
+    private ChoiceButtons closeButton;
+    Home home;
 
     // Main method to run the GUI
-    public static void main(String[] args) {
+    public ChatbotGUI(Home home) {
+        this.home = home;
+        
         // Create the frame
-        JFrame frame = new JFrame("Always Right Chatbot");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 620);
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
+        setTitle("Always Right Chatbot");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500, 620);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setUndecorated(true);
+        
 
-        ImageIcon icon = new ImageIcon("WalkToTheRight.png");
-        frame.setIconImage(icon.getImage());
+        ImageIcon icon = new ImageIcon(getClass().getResource("/WalkToTheRight.png"));
+        setIconImage(icon.getImage());
+
+        this.addWindowListener (new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                // When Frame 2 is opened, disable Frame 1
+                home.setEnabled(false);
+            }
+        });
 
         // Create the chat pane
         JTextPane chatPane = new JTextPane();
@@ -24,17 +41,29 @@ public class ChatbotGUI {
         chatPane.setMargin(new Insets(15, 15, 15, 15));
         chatPane.setBackground(Color.decode("#191919"));
         chatPane.setForeground(Color.WHITE);
+        
 
         // Create the input field
         JTextField inputField = new JTextField(30);
-        inputField.setBorder(BorderFactory.createLineBorder(Color.decode("#38B6FF"), 2)); // Set border color to blue and line thickness to 2
-        inputField.setFont(new Font("Arial", Font.PLAIN, 14)); // Set font to Arial, plain style, and size 14
+        inputField.setBorder(null); // Set border color to blue and line thickness to 2
+        inputField.setFont(new Font("Arial", Font.PLAIN, 15)); // Set font to Arial, plain style, and size 14
         inputField.setBackground(Color.decode("#191919"));
         inputField.setForeground(Color.WHITE);
         inputField.setCaretColor(Color.BLACK);
+        inputField.setHorizontalAlignment(JTextField.CENTER);
 
         // Create the send button
-        ChoiceButtons sendButton = new ChoiceButtons("Send", "Send");
+        ChoiceButtons sendButton = new ChoiceButtons(">>", "SEND");
+        sendButton.setFocusable(false);
+        sendButton.setFont(new Font("Arial", Font.BOLD, 16));
+        
+        //CloseButton
+        closeButton = new ChoiceButtons("XX", "CLOSE");
+        closeButton.setFocusable(false);
+        closeButton.setFont(new Font("Arial", Font.BOLD, 16));
+        closeButton.addActionListener(this);
+        
+        
 
 
         // Add action listener to the send button
@@ -47,20 +76,21 @@ public class ChatbotGUI {
 
         // Panel to hold the input field and send button
         JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new FlowLayout()); // Use FlowLayout for the input panel
+        inputPanel.setLayout(new FlowLayout());
+        inputPanel.add(closeButton);
         inputPanel.add(inputField);
         inputPanel.add(sendButton);
-        inputPanel.setBackground(Color.decode("#191919"));
+        inputPanel.setBackground(Color.decode("#FFFFFF"));
 
         // Add components to the frame
-        frame.getContentPane().add(new JScrollPane(chatPane), BorderLayout.CENTER);
-        frame.getContentPane().add(inputPanel, BorderLayout.SOUTH);
+        this.getContentPane().add(new JScrollPane(chatPane), BorderLayout.CENTER);
+        this.getContentPane().add(inputPanel, BorderLayout.SOUTH);
 
         // Display the chatbot's greeting
         displayGreeting(chatPane);
 
         // Display the frame
-        frame.setVisible(true);
+        this.setVisible(true);
     }
 
 
@@ -71,7 +101,7 @@ public class ChatbotGUI {
         StyleConstants.setAlignment(leftAlign, StyleConstants.ALIGN_LEFT);
         StyleConstants.setForeground(leftAlign, Color.decode("#38B6FF"));
         StyleConstants.setFontFamily(leftAlign, "Arial");
-        StyleConstants.setFontSize(leftAlign, 14);
+        StyleConstants.setFontSize(leftAlign, 15);
         //StyleConstants.setBackground(leftAlign, Color.decode("#4caf50")); // Bot's bubble color
 
         try {
@@ -85,7 +115,7 @@ public class ChatbotGUI {
     }
 
         // Method to send message with rounded background shapes
-    private static void sendMessage(JTextPane chatPane, JTextField inputField) {
+    private void sendMessage(JTextPane chatPane, JTextField inputField) {
 
     String userInput = inputField.getText();
     String response = ChatbotAlgorithm.getResponse(userInput); // Get response from the chatbot algorithm
@@ -125,5 +155,12 @@ public class ChatbotGUI {
         // Clear the input field
         inputField.setText("");
     }
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == closeButton) {
+            home.setEnabled(true);
+            dispose();
+            
+        }
+    }
 }
