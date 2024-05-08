@@ -70,7 +70,8 @@ public class Dijkstra {
         return verticalResults.toString();
     }
 
-    private static class Result {
+    // represents the result of the shortest path calculation, including the path (list of nodes), directions (list of strings), and the distance (total distance).
+    private static class Result {       
         List<Integer> path;
         List<String> directions;
         int distance;
@@ -83,35 +84,35 @@ public class Dijkstra {
     }
 
     private static Result findShortestPath(int[][] graph, String[][] directions, int source, int destination) {
-        int n = graph.length;
-        int[] distances = new int[n];
-        boolean[] visited = new boolean[n];
-        Arrays.fill(distances, INFINITY);
-        distances[source] = 0;
+        int n = graph.length;                            //calculate the number on node(zone) by getting the length of graph @Floor Directory Class
+        int[] distances = new int[n];                    //store the distance from the starting node(kiosk) to another node
+        boolean[] visited = new boolean[n];              //keep track the nodes if visited
+        Arrays.fill(distances, INFINITY);                //maximum integer value ng distances
+        distances[source] = 0;                           //kiosk as starting point
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(i -> distances[i]));
-        pq.offer(source);
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.comparingInt(i -> distances[i]));   
+        pq.offer(source);                                // a prio queue based on distance. kapag mas shorter shorter yung distance mas prio siya
 
-        while (!pq.isEmpty()) {
+        while (!pq.isEmpty()) {                         //return the node with shortest distance
             int u = pq.poll();
             if (u == destination) {
                 break; // Stop early if destination is reached
             }
-            visited[u] = true;
+            visited[u] = true;                            // magmamark as visited para maavoid yung revisiting ng nodes
             for (int v = 0; v < n; v++) {
-                if (graph[u][v] != 0 && !visited[v]) {
-                    int alt = distances[u] + graph[u][v];
-                    if (alt < distances[v]) {
-                        distances[v] = alt;
-                        pq.offer(v);
+                if (graph[u][v] != 0 && !visited[v]) {          // check if there is an edge between nodes
+                    int alt = distances[u] + graph[u][v];       // add or calculate the distance
+                    if (alt < distances[v]) {                   //chcheck kung shorter ba yung current distance
+                        distances[v] = alt;                    // then update
+                        pq.offer(v);                           // another prio q kung may shorter path pa
                     }
                 }
             }
         }
 
-        List<Integer> path = new ArrayList<>();
-        List<String> pathDirections = new ArrayList<>();
-        path.add(destination);
+        List<Integer> path = new ArrayList<>();                          //store nodes na may shortest path      
+        List<String> pathDirections = new ArrayList<>();                //store directional instruction
+        path.add(destination);                                           //
         pathDirections.add("You're right there!");
         int current = destination;
         while (current != source) {
